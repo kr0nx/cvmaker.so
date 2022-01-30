@@ -22,13 +22,13 @@ export default function Home() {
                   id="pattern"
                   x="0"
                   y="0"
-                  width="62"
-                  height="62"
+                  width="83"
+                  height="83"
                   patternUnits="userSpaceOnUse"
-                  patternTransform="translate(30, 30) rotate(0) skewX(0)"
+                  patternTransform="translate(73, 73) rotate(0) skewX(0)"
                 >
-                  <svg width="32" height="32" viewBox="0 0 100 100">
-                    <g fill="#ffafcc" opacity="1">
+                  <svg width="10" height="10" viewBox="0 0 100 100">
+                    <g fill="#ffc8dd" opacity="1">
                       <circle cx="50" cy="50" r="50"></circle>
                     </g>
                   </svg>
@@ -108,7 +108,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="relative mt-16 mb-16">
+        <div className="relative mt-16 h-full mb-16">
           <div className="absolute inset-0 flex flex-col" aria-hidden="true">
             <div className="flex-1" />
             <div className="flex-1 w-full" />
