@@ -1,6 +1,9 @@
 import Head from 'next/head'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
 
 export default function Home() {
+  const { t } = useTranslation('common')
   return (
     <div>
       <Head>
@@ -9,11 +12,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+      <main className="bg-orchid-pink min-h-screen">
+        <h1>{t('common:hello')}</h1>
       </main>
     </div>
   )
 }
+
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ['common', 'footer']))
+  }
+})
