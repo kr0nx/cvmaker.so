@@ -11,6 +11,9 @@ module.exports = {
         'uranian-blue': '#bde0feff',
         'baby-blue-eyes': '#a2d2ffff'
       },
+      fontFamily: {
+        mali: ['"Mali, cursive"']
+      },
       animation: {
         blob: 'blob 7s infinite'
       },

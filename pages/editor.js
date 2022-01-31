@@ -1,0 +1,70 @@
+import Head from 'next/head'
+import { useEffect, useState } from 'react'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import sectionsWithLocales from 'sections/index'
+
+import Nav from 'components/Nav'
+import SectionSide from 'components/SectionSide'
+
+import { useStateValue } from 'context'
+
+export default function Editor({ sections }) {
+  const { state, dispatch } = useStateValue()
+
+  useEffect(() => {
+    dispatch({
+      type: 'SET_SECTIONS',
+      sections
+    })
+  }, [dispatch, sections])
+
+  useEffect(() => {
+    dispatch({ type: 'SELECT_SECTION', slug: 'title-and-description' })
+  }, [dispatch])
+
+  return (
+    <>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+          rel="stylesheet"
+        ></link>
+
+        <script
+          data-name="BMC-Widget"
+          data-cfasync="false"
+          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+          data-id="codewithdidem"
+          data-description="Support me on Buy me a coffee!"
+          data-message=""
+          data-color="#FFDD00"
+          data-position="Right"
+          data-x_margin="18"
+          data-y_margin="18"
+        ></script>
+      </Head>
+      <div className="w-full h-full ">
+        <Nav />
+
+        <div className="flex md:px-6 md:pt-6">
+          <div className="flex flex-0 drawer-height absolute md:static p-6 md:p-0 bg-gray-900 shadow z-10">
+            <SectionSide />
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export const getStaticProps = async ({ locale }) => {
+  const sections = sectionsWithLocales[locale] || sectionsWithLocales['en_EN']
+
+  return {
+    props: {
+      sections,
+      ...(await serverSideTranslations(locale, ['common', 'editor']))
+    }
+  }
+}

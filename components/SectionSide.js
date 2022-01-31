@@ -1,0 +1,120 @@
+import { useState, useEffect } from 'react'
+import {
+  closestCenter,
+  DndContext,
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors
+} from '@dnd-kit/core'
+import { SortableContext, sortableKeyboardCoordinates } from '@dnd-kit/sortable'
+import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
+import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
+import SortableItem from './SortableItem'
+
+import { useStateValue } from 'context'
+
+const SectionSide = () => {
+  const {
+    state: { sections, sectionSlugs, selectedSections, selectedSlugs },
+    dispatch
+  } = useStateValue()
+
+  const sensors = useSensors(
+    useSensor(MouseSensor),
+    useSensor(TouchSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates
+    })
+  )
+
+  const onSelectSection = (event, slug) => {
+    event.preventDefault()
+
+    dispatch({ type: 'SELECT_SECTION', slug })
+  }
+
+  const onDragEnd = () => {}
+
+  return (
+    <div className="w-80">
+      <div className="flex items-center justify-between text-baby-blue-eyes">
+        <h3 className="px-1 text-sm font-medium  border-b-2 border-transparent  whitespace-nowrap focus:outline-none">
+          Sections
+        </h3>
+        <button className="flex items-center justify-between  space-x-3 text-sm">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5 text-white"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+            />
+          </svg>
+
+          <span>Reset</span>
+        </button>
+      </div>
+
+      <div className="px-3 pr-4 overflow-y-scroll full-screen">
+        {selectedSlugs.length > 0 && (
+          <h4 className="mb-3 text-sm leading-6 text-gray-200 ">
+            Click on a section below to edit the contents
+          </h4>
+        )}
+
+        <ul className="mb-12 space-y-3">
+          <DndContext
+            sensors={sensors}
+            collisionDetection={closestCenter}
+            onDragEnd={onDragEnd}
+            modifiers={[restrictToVerticalAxis]}
+          >
+            <SortableContext items={selectedSlugs}>
+              {selectedSlugs.map((slug) => {
+                const template = sections.find((section) => section.slug === slug)
+                return <SortableItem key={slug} slug={slug} section={template} />
+              })}
+            </SortableContext>
+          </DndContext>
+        </ul>
+
+        {sectionSlugs.length > 0 && (
+          <h4 className="mb-3 text-sm leading-6 text-gray-200 ">
+            Click on a section below to add it to your readme
+          </h4>
+        )}
+
+        <ul className="mb-12 space-y-3">
+          {sectionSlugs.map((slug) => {
+            const template = sections.find((section) => section.slug === slug)
+
+            if (template) {
+              return (
+                <li key={slug}>
+                  <button
+                    className="flex items-center w-full h-full py-2 pl-3 pr-6 bg-white dark:bg-gray-200 rounded-md shadow cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-600"
+                    type="button"
+                    onClick={(event) => onSelectSection(event, slug)}
+                  >
+                    <span>{template.name}</span>
+                  </button>
+                </li>
+              )
+            }
+          })}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+export default SectionSide
