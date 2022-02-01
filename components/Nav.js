@@ -19,7 +19,7 @@ const Nav = () => {
     }, ``)
 
     axios
-      .post('/api/resume/to-html', {
+      .post('api/resume/to-html', {
         markdown: markdown.toString()
       })
       .then(({ data }) => {
