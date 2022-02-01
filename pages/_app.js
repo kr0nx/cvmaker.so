@@ -2,6 +2,7 @@ import { appWithTranslation } from 'next-i18next'
 import NextNProgress from 'nextjs-progressbar'
 import { DefaultSeo } from 'next-seo'
 import SEO from 'next-seo.config'
+
 import { StateProvider } from 'context'
 
 import '../styles/globals.css'
