@@ -24,16 +24,23 @@ const Nav = () => {
       : 'https://cv-builder-codingwithdidem.vercel.app'
 
     axios
-      .post(`${server}/api/resume/to-html`, {
-        markdown: markdown.toString()
-      })
+      .post(
+        `${server}/api/resume/to-html`,
+        {
+          markdown: markdown.toString()
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
       .then(({ data }) => {
-        console.log(data.result)
-        // const a = document.createElement('a')
-        // const blob = new Blob([data.result])
-        // a.href = URL.createObjectURL(blob)
-        // a.download = 'resume.html'
-        // a.click()
+        const a = document.createElement('a')
+        const blob = new Blob([data.result])
+        a.href = URL.createObjectURL(blob)
+        a.download = 'resume.html'
+        a.click()
       })
       .catch(err => {
         console.log(err)

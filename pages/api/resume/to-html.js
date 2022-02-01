@@ -6,11 +6,13 @@ const serverPath = staticFilePath => {
   return path.join(getConfig().serverRuntimeConfig.PROJECT_ROOT, staticFilePath)
 }
 
-export default (req, res) => {
+export default async (req, res) => {
   if (req.method === 'POST') {
     const { markdown } = req.body
 
     const cssPath = serverPath('public/resume-css-stylesheet.css')
+
+    print(cssPath)
 
     let args = `-s --toc -H ${cssPath}`
 
