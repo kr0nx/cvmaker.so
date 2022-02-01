@@ -10,9 +10,7 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     const { markdown } = req.body
 
-    const cssPath = serverPath('public/resume-css-stylesheet.css')
-
-    print(cssPath)
+    // const cssPath = serverPath('public/resume-css-stylesheet.css')
 
     let args = `-s --toc`
 
