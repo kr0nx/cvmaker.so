@@ -33,20 +33,20 @@ export default function Editor({ sections }) {
           href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
           rel="stylesheet"
         ></link>
-
-        <Script
-          data-name="BMC-Widget"
-          data-cfasync="false"
-          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-          data-id="codewithdidem"
-          data-description="Support me on Buy me a coffee!"
-          data-message=""
-          data-color="#FFDD00"
-          data-position="Right"
-          data-x_margin="18"
-          data-y_margin="18"
-        ></Script>
       </Head>
+      <Script
+        data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="codewithdidem"
+        data-description="Support me on Buy me a coffee!"
+        data-message=""
+        data-color="#FFDD00"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18"
+      ></Script>
+
       <div className="w-full h-full overflow-hidden fixed bg-[#100f0f]">
         <Nav />
 
