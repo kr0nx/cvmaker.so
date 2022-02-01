@@ -21,7 +21,7 @@ const Nav = () => {
     const dev = process.env.NODE_ENV === 'development'
     const server = dev
       ? 'https://cv-builder-codingwithdidem.vercel.app'
-      : 'https://cv-builder-codingwithdidem.vercel.app'
+      : 'https://cv-builder-steel.vercel.app/'
 
     axios
       .post(
