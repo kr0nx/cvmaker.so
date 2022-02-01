@@ -18,6 +18,9 @@ const Nav = () => {
       }
     }, ``)
 
+    const dev = process.env.NODE_ENV === 'development'
+    const server = dev ? 'http://localhost:3000' : 'https://cv-builder-codingwithdidem.vercel.app'
+
     axios
       .post('api/resume/to-html', {
         markdown: markdown.toString()
