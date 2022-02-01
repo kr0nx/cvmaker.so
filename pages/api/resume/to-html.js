@@ -14,7 +14,7 @@ export default async (req, res) => {
 
     print(cssPath)
 
-    let args = `-s --toc -H ${cssPath}`
+    let args = `-s --toc `
 
     nodePandoc(markdown, args, (err, result) => {
       if (err) {
