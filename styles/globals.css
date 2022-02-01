@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  div {
+    overscroll-behavior: contain;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
 @layer utilities {
   .animation-delay-2000 {
     animation-delay: 2s;
@@ -9,4 +23,22 @@
   .animation-delay-4000 {
     animation-delay: 4s;
   }
+  .full-screen {
+    height: calc(100vh - 160px);
+  }
+}
+
+html ::-webkit-scrollbar {
+  width: 10px;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+}
+
+html ::-webkit-scrollbar-thumb {
+  background-color: #ffc8ddff;
+  border-radius: 20px;
+}
+
+html ::-webkit-scrollbar-thumb:hover {
+  background-color: #ffafccff;
 }

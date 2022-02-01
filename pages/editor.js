@@ -19,7 +19,7 @@ export default function Editor({ sections }) {
   }, [dispatch, sections])
 
   useEffect(() => {
-    dispatch({ type: 'SELECT_SECTION', slug: 'title-and-description' })
+    dispatch({ type: 'ADD_SECTION', slug: 'title-and-description' })
   }, [dispatch])
 
   return (
@@ -45,11 +45,11 @@ export default function Editor({ sections }) {
           data-y_margin="18"
         ></script>
       </Head>
-      <div className="w-full h-full ">
+      <div className="w-full h-full overflow-hidden fixed bg-[#100f0f]">
         <Nav />
 
-        <div className="flex md:px-6 md:pt-6">
-          <div className="flex flex-0 drawer-height absolute md:static p-6 md:p-0 bg-gray-900 shadow z-10">
+        <div className="flex md:px-6 md:pt-6 ">
+          <div className="flex  p-6 md:p-0 shadow ">
             <SectionSide />
           </div>
         </div>

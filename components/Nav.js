@@ -3,9 +3,9 @@ import React from 'react'
 
 const Nav = () => {
   return (
-    <nav className="flex justify-between p-4 bg-gray-900 items-center w-full">
+    <nav className="flex justify-between p-4 items-center w-full">
       <Link href={'/'} passHref>
-        <a className="focus:outline-none focus:ring-fuchsia-400 flex items-center">
+        <a className="focus:outline-none focus:ring-fuchsia-400 flex items-center ml-3">
           <img src="cv.svg" alt="cv logo" className="w-auto h-12" />
         </a>
       </Link>

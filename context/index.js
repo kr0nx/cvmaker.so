@@ -5,7 +5,7 @@ const initialState = {
   sectionSlugs: [],
   selectedSections: [],
   selectedSlugs: [],
-  focusedSection: null
+  focusedSlug: null
 }
 
 const StateContext = createContext(initialState)
@@ -18,12 +18,28 @@ const reducer = (state, action) => {
         sections: action.sections,
         sectionSlugs: action.sections.map((section) => section.slug)
       }
-    case 'SELECT_SECTION':
+    case 'ADD_SECTION':
       return {
         ...state,
         sectionSlugs: state.sectionSlugs.filter((slug) => slug !== action.slug),
         selectedSlugs: [...state.selectedSlugs, action.slug]
       }
+
+    case 'REMOVE_SECTION':
+      return {
+        ...state,
+        sectionSlugs: [...state.sectionSlugs, action.slug],
+        selectedSlugs: state.selectedSlugs.filter((slug) => slug !== action.slug)
+      }
+
+    case 'FOCUS_SECTION':
+      return {
+        ...state,
+        focusedSlug: action.slug
+      }
+
+    default:
+      return state
   }
 }
 

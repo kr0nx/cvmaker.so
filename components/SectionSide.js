@@ -30,17 +30,17 @@ const SectionSide = () => {
     })
   )
 
-  const onSelectSection = (event, slug) => {
+  const onAddSection = (event, slug) => {
     event.preventDefault()
 
-    dispatch({ type: 'SELECT_SECTION', slug })
+    dispatch({ type: 'ADD_SECTION', slug })
   }
 
   const onDragEnd = () => {}
 
   return (
     <div className="w-80">
-      <div className="flex items-center justify-between text-baby-blue-eyes">
+      <div className="flex items-center justify-between text-baby-blue-eyes px-2 py-2">
         <h3 className="px-1 text-sm font-medium  border-b-2 border-transparent  whitespace-nowrap focus:outline-none">
           Sections
         </h3>
@@ -64,7 +64,7 @@ const SectionSide = () => {
         </button>
       </div>
 
-      <div className="px-3 pr-4 overflow-y-scroll full-screen">
+      <div className="px-3 pr-4 overflow-y-scroll full-screen ">
         {selectedSlugs.length > 0 && (
           <h4 className="mb-3 text-sm leading-6 text-gray-200 ">
             Click on a section below to edit the contents
@@ -81,7 +81,7 @@ const SectionSide = () => {
             <SortableContext items={selectedSlugs}>
               {selectedSlugs.map((slug) => {
                 const template = sections.find((section) => section.slug === slug)
-                return <SortableItem key={slug} slug={slug} section={template} />
+                return <SortableItem key={slug} id={slug} section={template} />
               })}
             </SortableContext>
           </DndContext>
@@ -94,16 +94,16 @@ const SectionSide = () => {
         )}
 
         <ul className="mb-12 space-y-3">
-          {sectionSlugs.map((slug) => {
+          {sectionSlugs.sort().map((slug) => {
             const template = sections.find((section) => section.slug === slug)
 
             if (template) {
               return (
                 <li key={slug}>
                   <button
-                    className="flex items-center w-full h-full py-2 pl-3 pr-6 bg-white dark:bg-gray-200 rounded-md shadow cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-fuchsia-600"
+                    className="flex items-center w-full h-full py-2 pl-3 pr-6 bg-white dark:bg-gray-200 rounded-md shadow cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-pink-700"
                     type="button"
-                    onClick={(event) => onSelectSection(event, slug)}
+                    onClick={(event) => onAddSection(event, slug)}
                   >
                     <span>{template.name}</span>
                   </button>
