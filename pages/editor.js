@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Script from 'next/script'
 import { useEffect, useState } from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import sectionsWithLocales from 'sections/index'
@@ -33,7 +34,7 @@ export default function Editor({ sections }) {
           rel="stylesheet"
         ></link>
 
-        <script
+        <Script
           data-name="BMC-Widget"
           data-cfasync="false"
           src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
@@ -44,7 +45,7 @@ export default function Editor({ sections }) {
           data-position="Right"
           data-x_margin="18"
           data-y_margin="18"
-        ></script>
+        ></Script>
       </Head>
       <div className="w-full h-full overflow-hidden fixed bg-[#100f0f]">
         <Nav />
