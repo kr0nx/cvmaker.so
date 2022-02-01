@@ -23,6 +23,15 @@ const MdEditor = () => {
 
   const onEdit = (value) => {
     setMarkdown(value)
+
+    const newSections = sections.map((section) => {
+      if (section.slug === focusedSlug) {
+        return { ...section, markdown: value }
+      }
+      return section
+    })
+
+    dispatch({ type: 'SET_SECTIONS', sections: newSections })
   }
 
   return (
