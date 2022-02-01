@@ -13,9 +13,9 @@ const MdEditor = () => {
   const [markdown, setMarkdown] = useState('')
 
   useEffect(() => {
-    const markdown = sections.find((section) => section.slug === focusedSlug)?.markdown
+    const markdown = sections.find((section) => section.slug === focusedSlug)?.markdown || ''
     setMarkdown(markdown)
-  }, [focusedSlug])
+  }, [focusedSlug, sections])
 
   const onEditorDidMount = (editor, monaco) => {
     editorRef.current = editor

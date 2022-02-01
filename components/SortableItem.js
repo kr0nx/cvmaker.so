@@ -14,6 +14,8 @@ const SortableItem = ({ id, section }) => {
   }
 
   const onRemoveSection = (event) => {
+    event.stopPropagation()
+
     dispatch({ type: 'REMOVE_SECTION', slug: section.slug })
   }
 
@@ -34,7 +36,7 @@ const SortableItem = ({ id, section }) => {
       {...attributes}
       onClick={onClickSection}
       onKeyUp={onKeyUp}
-      className={`flex items-center justify-between px-4 bg-gray-200 shadow rounded-md py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-nadeshiko-pink relative ${
+      className={`flex items-center justify-between px-4 bg-gray-200 shadow rounded-md py-2 cursor-pointer focus:outline-none relative ${
         section.slug === state.focusedSlug ? 'ring-2 ring-nadeshiko-pink' : ''
       } `}
     >
