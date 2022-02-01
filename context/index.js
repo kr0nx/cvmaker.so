@@ -22,7 +22,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         sectionSlugs: state.sectionSlugs.filter((slug) => slug !== action.slug),
-        selectedSlugs: [...state.selectedSlugs, action.slug]
+        selectedSlugs: [...state.selectedSlugs, action.slug],
+        focusedSlug: action.slug
       }
 
     case 'REMOVE_SECTION':
