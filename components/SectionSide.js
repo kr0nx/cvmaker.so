@@ -39,7 +39,7 @@ const SectionSide = () => {
   const onDragEnd = () => {}
 
   return (
-    <div className="w-80">
+    <div className="w-80 flex-shrink-0">
       <div className="flex items-center justify-between text-baby-blue-eyes px-2 py-2">
         <h3 className="px-1 text-sm font-medium  border-b-2 border-transparent  whitespace-nowrap focus:outline-none">
           Sections

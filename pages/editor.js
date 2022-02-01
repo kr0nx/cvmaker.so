@@ -5,6 +5,7 @@ import sectionsWithLocales from 'sections/index'
 
 import Nav from 'components/Nav'
 import SectionSide from 'components/SectionSide'
+import MdEditor from 'components/MdEditor'
 
 import { useStateValue } from 'context'
 
@@ -48,9 +49,15 @@ export default function Editor({ sections }) {
       <div className="w-full h-full overflow-hidden fixed bg-[#100f0f]">
         <Nav />
 
-        <div className="flex md:px-6 md:pt-6 ">
-          <div className="flex  p-6 md:p-0 shadow ">
-            <SectionSide />
+        <div className="flex flex-1 space-x-10 w-full md:px-6 md:pt-4  h-full">
+          <SectionSide />
+
+          <div className="w-full md:w-1/2 full-screen ">
+            <MdEditor />
+          </div>
+
+          <div className="w-80 flex-shrink-0 ">
+            <h1>Side</h1>
           </div>
         </div>
       </div>
