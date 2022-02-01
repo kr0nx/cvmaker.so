@@ -30,7 +30,8 @@ const reducer = (state, action) => {
       return {
         ...state,
         sectionSlugs: [...state.sectionSlugs, action.slug],
-        selectedSlugs: state.selectedSlugs.filter((slug) => slug !== action.slug)
+        selectedSlugs: state.selectedSlugs.filter((slug) => slug !== action.slug),
+        focusedSlug: null
       }
 
     case 'FOCUS_SECTION':
