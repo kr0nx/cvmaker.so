@@ -22,7 +22,7 @@ const Nav = () => {
     const server = dev ? 'http://localhost:3000' : 'https://cv-builder-codingwithdidem.vercel.app'
 
     axios
-      .post('api/resume/to-html', {
+      .post(`${server}/api/resume/to-html`, {
         markdown: markdown.toString()
       })
       .then(({ data }) => {
