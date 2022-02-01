@@ -22,20 +22,13 @@ const Nav = () => {
     const server = dev ? 'http://localhost:3000' : 'https://cv-builder-steel.vercel.app/'
 
     axios
-      .post(
-        `${server}/api/resume/to-html`,
-        {
-          markdown: markdown.toString()
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }
-      )
+      .post(`${server}/api/resume/to-html`, {
+        markdown: markdown.toString()
+      })
       .then(({ data }) => {
+        console.log(data.data)
         const a = document.createElement('a')
-        const blob = new Blob([data.result])
+        const blob = new Blob([data.data])
         a.href = URL.createObjectURL(blob)
         a.download = 'resume.html'
         a.click()
