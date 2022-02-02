@@ -1,7 +1,6 @@
 import path from 'path'
 import { spawn } from 'child_process'
 import getConfig from 'next/config'
-var optipng = require('pandoc-bin').path
 
 const serverPath = (staticFilePath) => {
   return path.join(getConfig().serverRuntimeConfig.PROJECT_ROOT, staticFilePath)
@@ -13,14 +12,19 @@ export default async (req, res) => {
 
     const cssPath = serverPath('public/resume-css-stylesheet.css')
 
-    var child = spawn(optipng, [
+    var child = spawn(`pandoc`, [
+      '-f',
+      'markdown+tex_math_single_backslash+tex_math_dollars',
+      '-t',
+      'html5',
       `--css=${cssPath}`,
-      '-s',
       '--toc',
-      '--from=markdown_github',
-      '--to=html'
+      '--mathjax',
+      '--standalone'
     ])
+
     child.stdin.write(markdown)
+
     child.stdout.on('data', function (data) {
       res.status(200).json({ data: data.toString() })
     })

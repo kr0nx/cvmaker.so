@@ -10,7 +10,7 @@ const Nav = () => {
   } = useStateValue()
   const downloadHtml = () => {
     const markdown = selectedSlugs.reduce((acc, slug) => {
-      const template = sections.find(s => s.slug === slug)
+      const template = sections.find((s) => s.slug === slug)
       if (template) {
         return `${acc}${template.markdown}`
       } else {
@@ -26,14 +26,13 @@ const Nav = () => {
         markdown: markdown.toString()
       })
       .then(({ data }) => {
-        console.log(data.data)
         const a = document.createElement('a')
         const blob = new Blob([data.data])
         a.href = URL.createObjectURL(blob)
         a.download = 'resume.html'
         a.click()
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err)
       })
   }
