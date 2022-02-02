@@ -16,7 +16,7 @@ import SortableItem from './SortableItem'
 
 import { useStateValue } from 'context'
 
-const SectionSide = ({ sections, resetSections }) => {
+const SectionSide = ({ sections, resetSections, resetSection }) => {
   const {
     state: { sectionSlugs, selectedSlugs },
     dispatch
@@ -89,7 +89,14 @@ const SectionSide = ({ sections, resetSections }) => {
             <SortableContext items={selectedSlugs}>
               {selectedSlugs.map((slug) => {
                 const template = sections.find((section) => section.slug === slug)
-                return <SortableItem key={slug} id={slug} section={template} />
+                return (
+                  <SortableItem
+                    key={slug}
+                    id={slug}
+                    section={template}
+                    resetSection={resetSection}
+                  />
+                )
               })}
             </SortableContext>
           </DndContext>

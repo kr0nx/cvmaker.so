@@ -30,6 +30,20 @@ export default function Editor({ templates }) {
     setSections(templates)
   }
 
+  const resetSection = (slug) => {
+    const defaultSection = templates.find((s) => s.slug === slug)
+
+    const newSections = sections.map((section) => {
+      if (section.slug === slug) {
+        return defaultSection
+      } else {
+        return section
+      }
+    })
+
+    setSections(newSections)
+  }
+
   return (
     <>
       <Head>
@@ -57,7 +71,11 @@ export default function Editor({ templates }) {
         <Nav sections={sections} />
 
         <div className="flex flex-1 space-x-10 w-full md:px-6 md:pt-4  h-full">
-          <SectionSide sections={sections} resetSections={resetSections} />
+          <SectionSide
+            sections={sections}
+            resetSections={resetSections}
+            resetSection={resetSection}
+          />
 
           <div className="w-full md:w-1/2 full-screen ">
             <MdEditor sections={sections} updateSections={updateSections} />

@@ -4,7 +4,7 @@ import { CSS } from '@dnd-kit/utilities'
 
 import { useStateValue } from 'context'
 
-const SortableItem = ({ id, section }) => {
+const SortableItem = ({ id, section, resetSection }) => {
   const { state, dispatch } = useStateValue()
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id })
 
@@ -17,6 +17,10 @@ const SortableItem = ({ id, section }) => {
     event.stopPropagation()
 
     dispatch({ type: 'REMOVE_SECTION', slug: section.slug })
+  }
+
+  const onResetSection = () => {
+    resetSection(section.slug)
   }
 
   const onClickSection = () => {
@@ -50,7 +54,7 @@ const SortableItem = ({ id, section }) => {
       {state.focusedSlug === section.slug && (
         <div className="flex items-center space-x-2">
           {/* Reset Icon */}
-          <button className="flex items-center justify-center">
+          <button className="flex items-center justify-center" onClick={onResetSection}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
