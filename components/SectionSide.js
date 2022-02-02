@@ -16,9 +16,9 @@ import SortableItem from './SortableItem'
 
 import { useStateValue } from 'context'
 
-const SectionSide = () => {
+const SectionSide = ({ sections, resetSections }) => {
   const {
-    state: { sections, sectionSlugs, selectedSections, selectedSlugs },
+    state: { sectionSlugs, selectedSlugs },
     dispatch
   } = useStateValue()
 
@@ -39,7 +39,9 @@ const SectionSide = () => {
   const onReset = (event) => {
     event.preventDefault()
 
-    dispatch({ type: 'RESET_SECTIONS' })
+    resetSections()
+
+    dispatch({ type: 'RESET_SECTIONS', sections })
   }
 
   const onDragEnd = () => {}

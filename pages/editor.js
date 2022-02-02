@@ -10,21 +10,25 @@ import MdEditor from 'components/MdEditor'
 
 import { useStateValue } from 'context'
 
-export default function Editor({ sections }) {
+export default function Editor({ templates }) {
   const { state, dispatch } = useStateValue()
+
+  const [sections, setSections] = useState(templates)
 
   useEffect(() => {
     dispatch({
-      type: 'SET_SECTIONS',
+      type: 'INITIAL_SETUP',
       sections
     })
-  }, [dispatch, state.sections])
+  }, [dispatch, templates])
 
-  useEffect(() => {
-    if (!state.selectedSlugs.includes(state.focusedSlug)) {
-      dispatch({ type: 'ADD_SECTION', slug: 'name-and-surname' })
-    }
-  }, [dispatch, state.sections])
+  const updateSections = (newSections) => {
+    setSections(newSections)
+  }
+
+  const resetSections = () => {
+    setSections(templates)
+  }
 
   return (
     <>
@@ -50,13 +54,13 @@ export default function Editor({ sections }) {
       ></Script>
 
       <div className="w-full h-full overflow-hidden fixed ">
-        <Nav />
+        <Nav sections={sections} />
 
         <div className="flex flex-1 space-x-10 w-full md:px-6 md:pt-4  h-full">
-          <SectionSide />
+          <SectionSide sections={sections} resetSections={resetSections} />
 
           <div className="w-full md:w-1/2 full-screen ">
-            <MdEditor />
+            <MdEditor sections={sections} updateSections={updateSections} />
           </div>
 
           <div className="w-80 flex-shrink-0 ">
@@ -69,11 +73,11 @@ export default function Editor({ sections }) {
 }
 
 export const getStaticProps = async ({ locale }) => {
-  const sections = sectionsWithLocales[locale] || sectionsWithLocales['en_EN']
+  const templates = sectionsWithLocales[locale] || sectionsWithLocales['en_EN']
 
   return {
     props: {
-      sections,
+      templates,
       ...(await serverSideTranslations(locale, ['common', 'editor']))
     }
   }

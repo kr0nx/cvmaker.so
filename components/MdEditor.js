@@ -2,9 +2,9 @@ import Editor, { DiffEditor, useMonaco, loader } from '@monaco-editor/react'
 import { useState, useEffect, useRef } from 'react'
 import { useStateValue } from 'context'
 
-const MdEditor = () => {
+const MdEditor = ({ sections, updateSections }) => {
   const {
-    state: { sections, focusedSlug },
+    state: { focusedSlug },
     dispatch
   } = useStateValue()
 
@@ -31,7 +31,7 @@ const MdEditor = () => {
       return section
     })
 
-    dispatch({ type: 'SET_SECTIONS', sections: newSections })
+    updateSections(newSections)
   }
 
   return (

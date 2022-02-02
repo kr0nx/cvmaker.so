@@ -3,11 +3,12 @@ import axios from 'axios'
 
 import { useStateValue } from 'context'
 
-const Nav = () => {
+const Nav = ({ sections }) => {
   const {
-    state: { sections, selectedSlugs },
+    state: { selectedSlugs },
     dispatch
   } = useStateValue()
+
   const downloadHtml = () => {
     const markdown = selectedSlugs.reduce((acc, slug) => {
       const template = sections.find((s) => s.slug === slug)

@@ -1,9 +1,7 @@
 import { useReducer, createContext, useContext } from 'react'
 
 const initialState = {
-  sections: [],
   sectionSlugs: [],
-  selectedSections: [],
   selectedSlugs: [],
   focusedSlug: null
 }
@@ -12,11 +10,14 @@ const StateContext = createContext(initialState)
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SET_SECTIONS':
+    case 'INITIAL_SETUP':
       return {
         ...state,
-        sections: action.sections,
-        sectionSlugs: action.sections.map((section) => section.slug)
+        sectionSlugs: action.sections
+          .filter((section) => section.slug !== 'name-and-surname')
+          .map((section) => section.slug),
+        selectedSlugs: ['name-and-surname'],
+        focusedSlug: 'name-and-surname'
       }
     case 'ADD_SECTION':
       return {
@@ -43,11 +44,11 @@ const reducer = (state, action) => {
     case 'RESET_SECTIONS':
       return {
         ...state,
-        sections: [],
-        sectionSlugs: [],
-        selectedSections: [],
-        selectedSlugs: [],
-        focusedSlug: null
+        sectionSlugs: action.sections
+          .filter((section) => section.slug !== 'name-and-surname')
+          .map((section) => section.slug),
+        selectedSlugs: ['name-and-surname'],
+        focusedSlug: 'name-and-surname'
       }
 
     default:
