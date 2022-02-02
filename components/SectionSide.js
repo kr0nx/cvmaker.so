@@ -8,7 +8,7 @@ import {
   useSensor,
   useSensors
 } from '@dnd-kit/core'
-import { SortableContext, sortableKeyboardCoordinates } from '@dnd-kit/sortable'
+import { arrayMove, SortableContext, sortableKeyboardCoordinates } from '@dnd-kit/sortable'
 import { restrictToVerticalAxis } from '@dnd-kit/modifiers'
 import Image from 'next/image'
 import { useTranslation } from 'next-i18next'
@@ -44,7 +44,19 @@ const SectionSide = ({ sections, resetSections, resetSection }) => {
     dispatch({ type: 'RESET_SECTIONS', sections })
   }
 
-  const onDragEnd = () => {}
+  const onDragEnd = (event) => {
+    const { active, over } = event
+
+    if (active.id !== over.id) {
+      const oldIndex = selectedSlugs.findIndex((slug) => slug === active.id)
+      const newIndex = selectedSlugs.findIndex((slug) => slug === over.id)
+
+      dispatch({
+        type: 'MOVE_SECTION',
+        selectedSlugs: arrayMove(selectedSlugs, oldIndex, newIndex)
+      })
+    }
+  }
 
   return (
     <div className="w-80 flex-shrink-0">

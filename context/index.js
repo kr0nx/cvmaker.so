@@ -41,6 +41,12 @@ const reducer = (state, action) => {
         focusedSlug: action.slug
       }
 
+    case 'MOVE_SECTION':
+      return {
+        ...state,
+        selectedSlugs: action.selectedSlugs
+      }
+
     case 'RESET_SECTIONS':
       return {
         ...state,
