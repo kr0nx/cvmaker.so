@@ -70,18 +70,18 @@ export default function Editor({ templates }) {
       <div className="w-full h-full overflow-hidden fixed bg-teal-800 ">
         <Nav sections={sections} />
 
-        <div className="flex flex-1 space-x-10 w-full md:px-6 md:pt-4  h-full">
+        <div className="flex flex-1 space-x-4 w-full md:px-6   h-full">
           <SectionSide
             sections={sections}
             resetSections={resetSections}
             resetSection={resetSection}
           />
 
-          <div className="w-full md:w-1/2 full-screen ">
+          <div className="w-full flex-1 full-screen ">
             <MdEditor sections={sections} updateSections={updateSections} />
           </div>
 
-          <div className="w-80 flex-shrink-0 ">
+          <div className="w-[520px] flex-shrink-0 bg-pink-800 mt-4 ">
             <h1>Side</h1>
           </div>
         </div>

@@ -40,12 +40,12 @@ const MdEditor = ({ sections, updateSections }) => {
       value={markdown}
       onChange={onEdit}
       onMount={onEditorDidMount}
-      className="rounded-sm ring-2 ring-orchid-pink mt-9 full-screen"
+      className="rounded-sm ring-2 ring-orchid-pink mt-4 full-screen"
       loading={'Loading...'}
       options={{
         minimap: { enabled: false },
         lineNumbers: false,
-        fontSize: 14,
+        fontSize: 15,
         fontFamily: 'Cascadia Code',
         automaticLayout: true
       }}
