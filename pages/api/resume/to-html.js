@@ -13,12 +13,12 @@ export default async (req, res) => {
 
     const cssPath = serverPath('public/resume-css-stylesheet.css')
 
-    var child = spawn('optipng', [
+    var child = spawn(optipng, [
       '-s',
       '--toc',
       '--from=markdown_github',
-      '--to=html',
-      `--css=${cssPath}`
+      '--to=html'
+      // `--css=${cssPath}`
     ])
     child.stdin.write(markdown)
     child.stdout.on('data', function (data) {
