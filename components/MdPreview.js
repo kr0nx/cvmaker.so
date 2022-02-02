@@ -21,9 +21,10 @@ const MdPreview = ({ sections }) => {
     <div className="preview">
       <ReactMarkdown
         className="bg-gray-200 full-screen rounded-md px-4 py-4 overflow-y-scroll"
-        children={markdown}
         remarkPlugins={[remarkGfm]}
-      />
+      >
+        {markdown}
+      </ReactMarkdown>
     </div>
   )
 }
