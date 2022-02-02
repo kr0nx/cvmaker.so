@@ -46,7 +46,8 @@ const MdEditor = () => {
         minimap: { enabled: false },
         lineNumbers: false,
         fontSize: 14,
-        fontFamily: 'Cascadia Code'
+        fontFamily: 'Cascadia Code',
+        automaticLayout: true
       }}
     />
   )

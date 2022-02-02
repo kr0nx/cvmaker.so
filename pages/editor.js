@@ -21,7 +21,7 @@ export default function Editor({ sections }) {
   }, [dispatch, sections])
 
   useEffect(() => {
-    dispatch({ type: 'ADD_SECTION', slug: 'title-and-description' })
+    dispatch({ type: 'ADD_SECTION', slug: 'name-and-surname' })
   }, [dispatch])
 
   return (

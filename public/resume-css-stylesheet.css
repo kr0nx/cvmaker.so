@@ -64,7 +64,7 @@ template {
  */
 
 html {
-  font-family: sans-serif; /* 1 */
+  font-family: 'Inter', monospace;
   -ms-text-size-adjust: 100%; /* 2 */
   -webkit-text-size-adjust: 100%; /* 2 */
 }
@@ -1016,4 +1016,20 @@ sub {
 .type-csharp .highlight .s,
 .type-csharp .highlight .sc {
   color: #a31515;
+}
+
+subtitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #484848;
+}
+
+.cv-pic {
+  text-align: center;
+}
+
+.cv-pic img {
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
 }

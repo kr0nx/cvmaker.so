@@ -1,68 +1,90 @@
-# Project Title
+# Johnny Coder
 
-A brief description of what this project does and who it's for
+---
 
-## Acknowledgements
+1 MyAddress email@example.com
+MyTown 1000 @twitter_handle
+MyCountry 1800 my-phone-nr
 
-- [Awesome Readme Templates](https://awesomeopensource.com/project/elangosundar/awesome-README-templates)
-- [Awesome README](https://github.com/matiassingers/awesome-readme)
-- [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+---
 
-## API Reference
+## Education
 
-#### Get all items
+2010-2014 (expected)
+: **PhD, Computer Science**; Awesome University (MyTown)
 
-```http
-  GET /api/items
-```
+    *Thesis title: Deep Learning Approaches to the Self-Awesomeness
+     Estimation Problem*
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
+2007-2010
+: **BSc, Computer Science and Electrical Engineering**; University of
+HomeTown (HomeTown)
 
-#### Get item
+    *Minor: Awesomeology*
 
-```http
-  GET /api/items/${id}
-```
+## Experience
 
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+**Your Most Recent Work Experience:**
 
-#### add(num1, num2)
+Short text containing the type of work done, results obtained,
+lessons learned and other remarks. Can also include lists and
+links:
 
-Takes two numbers and returns the sum.
+- First item
 
-## Authors
+- Item with [link](http://www.example.com). Links will work both in
+  the html and pdf versions.
 
-- [@katherinepeterson](https://www.github.com/octokatherine)
+**That Other Job You Had**
 
-## Appendix
+Also with a short description.
 
-Any additional information goes here
+## Technical Experience
 
-## Badges
+My Cool Side Project
+: For items which don't have a clear time ordering, a definition
+list can be used to have named items.
 
-Add badges from somewhere like: [shields.io](https://shields.io/)
+    * These items can also contain lists, but you need to mind the
+      indentation levels in the markdown source.
+    * Second item.
 
-[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+Open Source
+: List open source contributions here, perhaps placing emphasis on
+the project names, for example the **Linux Kernel**, where you
+implemented multithreading over a long weekend, or **node.js**
+(with [link](http://nodejs.org)) which was actually totally
+your idea...
 
-## Contributing
+Programming Languages
+: **first-lang:** Here, we have an itemization, where we only want
+to add descriptions to the first few items, but still want to
+mention some others together at the end. A format that works well
+here is a description list where the first few items have their
+first word emphasized, and the last item contains the final few
+emphasized terms. Notice the reasonably nice page break in the pdf
+version, which wouldn't happen if we generated the pdf via html.
 
-Contributions are always welcome!
+: **second-lang:** Description of your experience with second-lang,
+perhaps again including a [link] [ref], this time placing the url
+reference elsewhere in the document to reduce clutter (see source
+file).
 
-See `contributing.md` for ways to get started.
+: **obscure-but-impressive-lang:** We both know this one's pushing
+it.
 
-Please adhere to this project's `code of conduct`.
+: Basic knowledge of **C**, **x86 assembly**, **forth**, **Common Lisp**
 
-## Color Reference
+[ref]: https://github.com/githubuser/superlongprojectname
 
-| Color         | Hex                                                              |
-| ------------- | ---------------------------------------------------------------- |
-| Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |
-| Example Color | ![#f8f8f8](https://via.placeholder.com/10/f8f8f8?text=+) #f8f8f8 |
-| Example Color | ![#00b48a](https://via.placeholder.com/10/00b48a?text=+) #00b48a |
-| Example Color | ![#00d1a0](https://via.placeholder.com/10/00b48a?text=+) #00d1a0 |
+## Extra Section, Call it Whatever You Want
+
+- Human Languages:
+
+  - English (native speaker)
+  - ???
+  - This is what a nested list looks like.
+
+- Random tidbit
+
+- Other sort of impressive-sounding thing you did
