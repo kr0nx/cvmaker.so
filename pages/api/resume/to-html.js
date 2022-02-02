@@ -10,14 +10,18 @@ export default async (req, res) => {
   if (req.method === 'POST') {
     const { markdown } = req.body
 
-    const cssPath = serverPath('public/resume-css-stylesheet.css')
+    const devCssPath = serverPath('public/resume-css-stylesheet.css')
+    const prodCssPath = 'https://cv-builder-steel.vercel.app/resume-css-stylesheet.css'
+
+    const dev = process.env.NODE_ENV === 'development'
+    const cssLink = dev ? devCssPath : prodCssPath
 
     var child = spawn(`pandoc`, [
       '-f',
       'markdown+tex_math_single_backslash+tex_math_dollars',
       '-t',
       'html5',
-      `--css=${cssPath}`,
+      `--css=${cssLink}`,
       '--toc',
       '--mathjax',
       '--standalone'
