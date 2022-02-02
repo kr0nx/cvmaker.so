@@ -1,6 +1,7 @@
 import path from 'path'
 import { spawn } from 'child_process'
 import getConfig from 'next/config'
+var optipng = require('pandoc-bin').path
 
 const serverPath = (staticFilePath) => {
   return path.join(getConfig().serverRuntimeConfig.PROJECT_ROOT, staticFilePath)
@@ -16,7 +17,7 @@ export default async (req, res) => {
     const dev = process.env.NODE_ENV === 'development'
     const cssLink = dev ? devCssPath : prodCssPath
 
-    var child = spawn(`pandoc`, [
+    var child = spawn(optipng, [
       '-f',
       'markdown+tex_math_single_backslash+tex_math_dollars',
       '-t',
