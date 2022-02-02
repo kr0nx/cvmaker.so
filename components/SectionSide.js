@@ -36,6 +36,12 @@ const SectionSide = () => {
     dispatch({ type: 'ADD_SECTION', slug })
   }
 
+  const onReset = (event) => {
+    event.preventDefault()
+
+    dispatch({ type: 'RESET_SECTIONS' })
+  }
+
   const onDragEnd = () => {}
 
   return (
@@ -44,7 +50,7 @@ const SectionSide = () => {
         <h3 className="px-1 text-sm font-medium  border-b-2 border-transparent  whitespace-nowrap focus:outline-none">
           Sections
         </h3>
-        <button className="flex items-center justify-between  space-x-3 text-sm">
+        <button className="flex items-center justify-between  space-x-3 text-sm" onClick={onReset}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-5 w-5 text-white"

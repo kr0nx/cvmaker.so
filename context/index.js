@@ -40,6 +40,16 @@ const reducer = (state, action) => {
         focusedSlug: action.slug
       }
 
+    case 'RESET_SECTIONS':
+      return {
+        ...state,
+        sections: [],
+        sectionSlugs: [],
+        selectedSections: [],
+        selectedSlugs: [],
+        focusedSlug: null
+      }
+
     default:
       return state
   }

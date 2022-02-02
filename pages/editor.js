@@ -18,11 +18,13 @@ export default function Editor({ sections }) {
       type: 'SET_SECTIONS',
       sections
     })
-  }, [dispatch, sections])
+  }, [dispatch, state.sections])
 
   useEffect(() => {
-    dispatch({ type: 'ADD_SECTION', slug: 'name-and-surname' })
-  }, [dispatch])
+    if (!state.selectedSlugs.includes(state.focusedSlug)) {
+      dispatch({ type: 'ADD_SECTION', slug: 'name-and-surname' })
+    }
+  }, [dispatch, state.sections])
 
   return (
     <>
@@ -47,7 +49,7 @@ export default function Editor({ sections }) {
         data-y_margin="18"
       ></Script>
 
-      <div className="w-full h-full overflow-hidden fixed bg-[#100f0f]">
+      <div className="w-full h-full overflow-hidden fixed ">
         <Nav />
 
         <div className="flex flex-1 space-x-10 w-full md:px-6 md:pt-4  h-full">
