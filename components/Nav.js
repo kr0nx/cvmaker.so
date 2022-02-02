@@ -26,9 +26,9 @@ const Nav = () => {
         markdown: markdown.toString()
       })
       .then(({ data }) => {
-        console.log(data.data)
+        console.log(data)
         const a = document.createElement('a')
-        const blob = new Blob([data.data])
+        const blob = new Blob([data.result])
         a.href = URL.createObjectURL(blob)
         a.download = 'resume.html'
         a.click()
