@@ -54,21 +54,20 @@ export default function Editor({ templates }) {
           href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
           rel="stylesheet"
         ></link>
+        <script
+          data-name="BMC-Widget"
+          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+          data-id="codewithdidem"
+          data-description="Support me on Buy me a coffee!"
+          data-message=""
+          data-color="#FFDD00"
+          data-position="Right"
+          data-x_margin="18"
+          data-y_margin="18"
+        ></script>
       </Head>
-      <Script
-        data-name="BMC-Widget"
-        data-cfasync="false"
-        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-        data-id="codewithdidem"
-        data-description="Support me on Buy me a coffee!"
-        data-message=""
-        data-color="#FFDD00"
-        data-position="Right"
-        data-x_margin="18"
-        data-y_margin="18"
-      ></Script>
 
-      <div className="w-full h-full overflow-hidden fixed bg-teal-800 ">
+      <div className="w-full h-full overflow-hidden fixed bg-sky-900">
         <Nav sections={sections} />
 
         <div className="flex flex-1 space-x-4 w-full md:px-6   h-full">

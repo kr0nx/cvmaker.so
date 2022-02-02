@@ -1018,18 +1018,12 @@ sub {
   color: #a31515;
 }
 
-subtitle {
-  font-size: 16px;
-  font-weight: bold;
-  color: #484848;
-}
-
-.cv-pic {
-  text-align: center;
-}
-
-.cv-pic img {
+img[src*='#thumbnail'] {
   width: 150px;
   height: 150px;
-  border-radius: 100%;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  object-fit: cover;
+  border-radius: 10%;
 }

@@ -120,7 +120,7 @@ export default function Home() {
               <div className="absolute -bottom-16 left-64 w-96 h-96 bg-blue-300 rounded-full mix-blend-normal filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
               <img
                 className="relative rounded-lg shadow-lg opacity-90"
-                src="/screenshot.png"
+                src="/screenshot_blue.png"
                 alt="App screenshot"
               />
             </div>

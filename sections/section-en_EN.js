@@ -4,7 +4,7 @@ export const en_EN = [
     name: 'Name and Surname',
     markdown: `
 
-  ![](https://pbs.twimg.com/profile_images/1475013514746122243/LlLpV5pr_400x400.jpg)
+![](https://pbs.twimg.com/profile_images/1475013514746122243/LlLpV5pr_400x400.jpg#thumbnail)
 
 # Didem Küçükkaraaslan
 
@@ -67,8 +67,6 @@ Company XYZ - London, England
     name: 'Skills & Expertise',
     markdown: `
 ## 🛠 Skills & Expertise
-
-\`JavaScript\` mesela
 
 | Skills            | Expertise                                                                |
 | ----------------- | ------------------------------------------------------------------ |
