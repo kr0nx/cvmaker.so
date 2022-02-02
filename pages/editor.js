@@ -67,7 +67,7 @@ export default function Editor({ templates }) {
         ></script>
       </Head>
 
-      <div className="w-full h-full overflow-hidden fixed bg-sky-900">
+      <div className="w-full h-full overflow-hidden fixed bg-gradient-to-br from-teal-900 via-teal-700 to-teal-500">
         <Nav sections={sections} />
 
         <div className="flex flex-1 space-x-4 w-full md:px-6   h-full">

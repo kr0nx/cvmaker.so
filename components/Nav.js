@@ -38,7 +38,7 @@ const Nav = ({ sections }) => {
       })
   }
   return (
-    <nav className="flex justify-between p-4 items-center w-full">
+    <nav className="flex justify-between py-2 px-4 items-center w-full">
       <Link href={'/'} passHref>
         <a className="focus:outline-none focus:ring-fuchsia-400 flex items-center ml-3">
           <img src="cv.svg" alt="cv logo" className="w-auto h-12" />
@@ -48,8 +48,22 @@ const Nav = ({ sections }) => {
       <div>
         <div className="p-4">
           <div className="group relative">
-            <button className="border-2 border-baby-blue-eyes font-semibold uppercase text-baby-blue-eyes text-sm px-6 py-2 rounded-md">
-              Download
+            <button className="flex items-center space-x-2  bg-purple-700 font-semibold uppercase text-white text-sm px-6 py-2 rounded-md">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+              <span>Download</span>
             </button>
             <nav
               tabIndex="0"

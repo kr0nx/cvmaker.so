@@ -12,6 +12,7 @@ export const en_EN = [
 
 `
   },
+
   {
     slug: 'profile',
     name: 'Profile',
