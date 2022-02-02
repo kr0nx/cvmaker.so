@@ -24,7 +24,14 @@ export default async (req, res) => {
     }
 
     // Call pandoc
-    nodePandoc(markdown, args, callback)
+    nodePandoc(
+      markdown,
+      {
+        spawn
+      },
+      args,
+      callback
+    )
 
     // var child = spawn('pandoc', [
     //   '-s',
