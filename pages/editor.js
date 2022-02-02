@@ -67,7 +67,7 @@ export default function Editor({ templates }) {
         data-y_margin="18"
       ></Script>
 
-      <div className="w-full h-full overflow-hidden fixed ">
+      <div className="w-full h-full overflow-hidden fixed bg-teal-800 ">
         <Nav sections={sections} />
 
         <div className="flex flex-1 space-x-10 w-full md:px-6 md:pt-4  h-full">
