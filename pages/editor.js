@@ -7,6 +7,7 @@ import sectionsWithLocales from 'sections/index'
 import Nav from 'components/Nav'
 import SectionSide from 'components/SectionSide'
 import MdEditor from 'components/MdEditor'
+import MdPreview from 'components/MdPreview'
 
 import { useStateValue } from 'context'
 
@@ -81,8 +82,8 @@ export default function Editor({ templates }) {
             <MdEditor sections={sections} updateSections={updateSections} />
           </div>
 
-          <div className="w-[520px] flex-shrink-0 bg-pink-800 mt-4 ">
-            <h1>Side</h1>
+          <div className="w-[520px] flex-shrink-0 mt-4 ">
+            <MdPreview sections={sections} />
           </div>
         </div>
       </div>

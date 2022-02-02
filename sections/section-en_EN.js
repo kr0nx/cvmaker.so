@@ -3,13 +3,12 @@ export const en_EN = [
     slug: 'name-and-surname',
     name: 'Name and Surname',
     markdown: `
-<div class="cv-pic">
+
   ![](https://pbs.twimg.com/profile_images/1475013514746122243/LlLpV5pr_400x400.jpg)
-</div>
 
 # Didem Küçükkaraaslan
 
-#### <subtitle>Entry level software developer with a passion for creating software that improves \`\`\` the lives of others. \`\`\`<subtitle>
+#### Entry level software developer with a passion for creating software that improves \`\`\` the lives of others. \`\`\`
 
 `
   },
