@@ -2,7 +2,7 @@ import Link from 'next/link'
 import axios from 'axios'
 import dynamic from 'next/dynamic'
 
-import { useConfetti } from 'hooks/useConfetti'
+import { fireConfetti } from 'hooks/fireConfetti'
 
 import { useStateValue } from 'context'
 
@@ -36,7 +36,7 @@ const Nav = ({ sections }) => {
         a.download = 'resume.html'
         a.click()
 
-        useConfetti()
+        fireConfetti()
       })
       .catch((err) => {
         console.log(err)
