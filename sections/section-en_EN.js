@@ -1,25 +1,28 @@
 export const en_EN = [
   {
-    slug: 'name-and-surname',
-    name: 'Name and Surname',
+    slug: 'intro',
+    name: 'Introduction',
     markdown: `
 
 ![](https://pbs.twimg.com/profile_images/1475013514746122243/LlLpV5pr_400x400.jpg#thumbnail)
 
 # Didem Küçükkaraaslan
 
-#### Entry level software developer with a passion for creating software that improves \`\`\` the lives of others. \`\`\`
+#### React Developer with a passion for creating software that improves \`\`\` the lives of others. \`\`\`
 
 `
   },
 
   {
-    slug: 'profile',
-    name: 'Profile',
+    slug: 'summary',
+    name: 'Summary',
     markdown: `
-## 📃 Profile
+## 📃 Summary
 
-Highly motivated BSSE graduate with a strong foundation in computer science and mathematics. Proficient in a variety of platforms and languages, including C, C++, Java, Python, JavaScript, and PHP.
+I am a software developer specializing in React and the JavaScript ecosystem. 
+I love to learn new things and I am always looking for ways to improve myself. 
+Besides that, I create content sharing my knowledge and experience mostly in the form of blogs and youtube videos.
+
 `
   },
   {
@@ -27,13 +30,9 @@ Highly motivated BSSE graduate with a strong foundation in computer science and 
     name: 'Education',
     markdown: `
 ## 🏫 Education
-2010-2014 
-**BSSE in Computer Science** - University of Oxford, England
+2013-2018 
+**BSSE in Computer Science** - University of Atılım, Turkey
 Coursework in data structures, algorithms, software engineering, and computer networks.
-
-2010-2014 
-**Msc in Computer Science** - University of Oxford, England
-Coursework in functional programming, database and machine learning.
 `
   },
   {
@@ -42,24 +41,28 @@ Coursework in functional programming, database and machine learning.
     markdown: `
 ## 👩‍💻 Work Experience
 
-2016-2018 
+2018 - 2021
+**React Developer**
+Altosec Bilişim - Ankara, Turkey
+
+- Responsible for the development of the web application using React, Redux, and Node.js
+- The applications is a cloud based waf service that is used to protect the web applications from attacks and log the requests and responses.
+
+2016 - ( 1 month ) 
 **Software Intern** 
-Company ABC - London, England
+Havelsan - Ankara, Turkey
 
-- Contributed to development of 5 projects using C, C++, Java, JavaScript, PHP, and Python.
-- Participated in code reviews
-- Provided development support
-- Performed debug and performance analysis
-
-2015-2016 
-**Software Intern** 
-Company XYZ - London, England
-
-- Developed web interface using JSP
+- Contributed to development of 1 project using Java.
+- Researched and implemented a new feature in the project. ( Notification Popup )
 - Contributed to team meetings
-- Provided status updates on development tasks
-- Performed debug and performance analysis
 
+
+2015 - ( 1 month ) 
+**Software Intern** 
+OpsGenie - Ankara, Turkey
+
+- Developed web interface using Spring MVC
+- Researched on new technologies and applied them to the project
 
 `
   },
@@ -69,12 +72,12 @@ Company XYZ - London, England
     markdown: `
 ## 🛠 Skills & Expertise
 
-| Skills            | Expertise                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Pyhton | Advanced |
-| C      | Entry    |
-| C++    | Entry    |
-| Java   | Entry    | ------------------------------------------------------------------ |
+| Skills            | Expertise                                                          |
+| ----------------- | -------------------------------------------------------------------|
+| Reactjs           |   Intermediate        |
+| JavaScript        |   Intermediate        |
+| GraphQL           |   Intermediate        |
+| TypeScript        |   Intermediate        | -------------------------------------------|
 `
   },
   {

@@ -67,21 +67,21 @@ export default function Editor({ templates }) {
         ></script>
       </Head>
 
-      <div className="w-full h-full overflow-hidden fixed bg-gradient-to-br from-blue-800 via-indigo-700  to-indigo-500">
+      <div className="fixed w-full h-full overflow-hidden bg-gradient-to-br from-purple-900 via-indigo-700 to-indigo-500">
         <Nav sections={sections} />
 
-        <div className="flex flex-1 space-x-4 w-full md:px-6   h-full">
+        <div className="flex flex-1 w-full h-full space-x-4 md:px-6">
           <SectionSide
             sections={sections}
             resetSections={resetSections}
             resetSection={resetSection}
           />
 
-          <div className="w-full flex-1 full-screen ">
+          <div className="flex-1 w-full full-screen ">
             <MdEditor sections={sections} updateSections={updateSections} />
           </div>
 
-          <div className="w-[520px] flex-shrink-0 mt-4 ">
+          <div className="w-[720px] flex-shrink-0 mt-4 ">
             <MdPreview sections={sections} />
           </div>
         </div>

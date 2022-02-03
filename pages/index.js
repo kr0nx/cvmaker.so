@@ -82,18 +82,18 @@ export default function Home() {
                   />
                 </Link>
 
-                <div className="relative items-center w-28 z-10 md:absolute md:inset-y-0 md:right-0"></div>
+                <div className="relative z-10 items-center w-28 md:absolute md:inset-y-0 md:right-0"></div>
               </nav>
             </div>
 
             <div className="px-4 mx-auto mt-16 max-w-7xl sm:mt-24 sm:px-6">
               <div className="text-center">
                 <h1 className="text-4xl font-extrabold tracking-tight text-transparent bg-gradient-to-br from-baby-blue-eyes to-fuchsia-600 bg-clip-text sm:text-5xl md:text-6xl">
-                  <span className="block">{t('title')}</span>
+                  <span className="block"> {t('common:title')}</span>
                   <span className="block text-fuchsia-600">{t('subtitle')}</span>
                 </h1>
                 <p className="max-w-md mx-auto mt-3 text-base text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                  {t('description')}
+                  {t('common:description')}
                 </p>
               </div>
               <div className="flex justify-center mt-6">
@@ -101,7 +101,7 @@ export default function Home() {
                   <span className="inline-flex rounded-md shadow ">
                     <Link href="/editor" passHref>
                       <a className="uppercase inline-flex items-center px-4 py-2 font-medium text-xl bg-blue-500 hover:bg-blue-400 border border-transparent rounded-lg text-white w-[250px] h-[54px] justify-center">
-                        {t('generate')}
+                        {t('common:generate')}
                       </a>
                     </Link>
                   </span>
@@ -109,15 +109,15 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="relative mt-16 h-full mb-16">
+          <div className="relative h-full mt-16 mb-16">
             <div className="absolute inset-0 flex flex-col" aria-hidden="true">
               <div className="flex-1" />
               <div className="flex-1 w-full" />
             </div>
-            <div className="relative px-4 mx-auto max-w-4xl sm:px-6 bg-gray-900">
-              <div className="absolute top-0 left-24 w-96 h-96 bg-fuchsia-300 rounded-full mix-blend-normal filter blur-xl opacity-70 animate-blob"></div>
-              <div className="absolute top-0 right-24 w-96 h-96 bg-green-300 rounded-full mix-blend-normal filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-              <div className="absolute -bottom-16 left-64 w-96 h-96 bg-blue-300 rounded-full mix-blend-normal filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+            <div className="relative max-w-4xl px-4 mx-auto bg-gray-900 sm:px-6">
+              <div className="absolute top-0 rounded-full left-24 w-96 h-96 bg-fuchsia-300 mix-blend-normal filter blur-xl opacity-70 animate-blob"></div>
+              <div className="absolute top-0 bg-green-300 rounded-full right-24 w-96 h-96 mix-blend-normal filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+              <div className="absolute bg-blue-300 rounded-full -bottom-16 left-64 w-96 h-96 mix-blend-normal filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
               <img
                 className="relative rounded-lg shadow-lg opacity-90"
                 src="/screenshot_blue.png"
@@ -133,6 +133,6 @@ export default function Home() {
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...(await serverSideTranslations(locale, ['common', 'footer']))
+    ...(await serverSideTranslations(locale, ['common']))
   }
 })

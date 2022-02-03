@@ -37,5 +37,7 @@ export default async (req, res) => {
       res.status(500).json({ error: data.toString() })
     })
     child.stdin.end()
+  } else {
+    res.status(405).json({ error: 'Method not allowed' })
   }
 }

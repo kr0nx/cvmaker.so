@@ -14,10 +14,10 @@ const reducer = (state, action) => {
       return {
         ...state,
         sectionSlugs: action.sections
-          .filter((section) => section.slug !== 'name-and-surname')
+          .filter((section) => section.slug !== 'intro')
           .map((section) => section.slug),
-        selectedSlugs: ['name-and-surname'],
-        focusedSlug: 'name-and-surname'
+        selectedSlugs: ['intro'],
+        focusedSlug: 'intro'
       }
     case 'ADD_SECTION':
       return {
@@ -51,10 +51,10 @@ const reducer = (state, action) => {
       return {
         ...state,
         sectionSlugs: action.sections
-          .filter((section) => section.slug !== 'name-and-surname')
+          .filter((section) => section.slug !== 'intro')
           .map((section) => section.slug),
-        selectedSlugs: ['name-and-surname'],
-        focusedSlug: 'name-and-surname'
+        selectedSlugs: ['intro'],
+        focusedSlug: 'intro'
       }
 
     default:
