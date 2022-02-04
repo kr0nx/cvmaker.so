@@ -12,7 +12,7 @@ export default async (req, res) => {
     const { markdown } = req.body
 
     const devCssPath = serverPath('public/resume-css-stylesheet.css')
-    const prodCssPath = 'https://cv-builder-steel.vercel.app/resume-css-stylesheet.css'
+    const prodCssPath = 'https://cvmaker-so.vercel.app//resume-css-stylesheet.css'
 
     const dev = process.env.NODE_ENV === 'development'
     const cssLink = dev ? devCssPath : prodCssPath

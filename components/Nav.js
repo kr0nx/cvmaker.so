@@ -26,7 +26,7 @@ const Nav = ({ sections }) => {
     }, ``)
 
     const dev = process.env.NODE_ENV === 'development'
-    const server = dev ? 'http://localhost:3000' : 'https://cv-builder-steel.vercel.app/'
+    const server = dev ? 'http://localhost:3000' : 'https://cvmaker-so.vercel.app/'
 
     axios
       .post(`${server}/api/resume/to-html`, {
