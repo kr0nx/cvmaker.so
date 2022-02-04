@@ -28,18 +28,22 @@ const Nav = ({ sections }) => {
     const dev = process.env.NODE_ENV === 'development'
     const server = dev ? 'http://localhost:3000' : 'https://cv-builder-steel.vercel.app/'
 
-    // axios
-    //   .post(`${server}/api/resume/to-html`, {
-    //     markdown: markdown.toString()
-    //   })
-    //   .then(({ data }) => {
-    //     const a = document.createElement('a')
-    //     const blob = new Blob([data.data])
-    //     a.href = URL.createObjectURL(blob)
-    //     a.download = 'resume.html'
-    //     a.click()
+    axios
+      .post(`${server}/api/resume/to-html`, {
+        markdown: markdown.toString()
+      })
+      .then(({ data }) => {
+        const a = document.createElement('a')
+        const blob = new Blob([data.data])
+        a.href = URL.createObjectURL(blob)
+        a.download = 'resume.html'
+        a.click()
 
-    fireConfetti()
+        fireConfetti()
+      })
+      .catch((err) => {
+        console.log(err)
+      })
   }
   return (
     <nav className="flex items-center justify-between w-full px-4 py-2">
