@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import axios from 'axios'
 import { useState } from 'react'
-import { useConfetti } from 'hooks/useConfetti'
+
+import { fireConfetti } from 'hooks/fireConfetti'
 import { useStateValue } from 'context'
 
 import { DownloadModal } from './DownloadModal'
@@ -26,7 +27,6 @@ const Nav = ({ sections }) => {
 
     const dev = process.env.NODE_ENV === 'development'
     const server = dev ? 'http://localhost:3000' : 'https://cv-builder-steel.vercel.app/'
-    useConfetti()
 
     // axios
     //   .post(`${server}/api/resume/to-html`, {
@@ -39,11 +39,7 @@ const Nav = ({ sections }) => {
     //     a.download = 'resume.html'
     //     a.click()
 
-    //     useConfetti()
-    //   })
-    //   .catch((err) => {
-    //     console.log(err)
-    //   })
+    fireConfetti()
   }
   return (
     <nav className="flex items-center justify-between w-full px-4 py-2">
