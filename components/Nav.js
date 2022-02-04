@@ -1,10 +1,10 @@
 import Link from 'next/link'
 import axios from 'axios'
-import dynamic from 'next/dynamic'
-
+import { useState } from 'react'
 import { useConfetti } from 'hooks/useConfetti'
-
 import { useStateValue } from 'context'
+
+import { DownloadModal } from './DownloadModal'
 
 const Nav = ({ sections }) => {
   const {
@@ -12,7 +12,9 @@ const Nav = ({ sections }) => {
     dispatch
   } = useStateValue()
 
-  const downloadHtml = () => {
+  const [showModal, setShowModal] = useState(false)
+
+  const download = (option) => {
     const markdown = selectedSlugs.reduce((acc, slug) => {
       const template = sections.find((s) => s.slug === slug)
       if (template) {
@@ -24,39 +26,43 @@ const Nav = ({ sections }) => {
 
     const dev = process.env.NODE_ENV === 'development'
     const server = dev ? 'http://localhost:3000' : 'https://cv-builder-steel.vercel.app/'
+    useConfetti()
 
-    axios
-      .post(`${server}/api/resume/to-html`, {
-        markdown: markdown.toString()
-      })
-      .then(({ data }) => {
-        const a = document.createElement('a')
-        const blob = new Blob([data.data])
-        a.href = URL.createObjectURL(blob)
-        a.download = 'resume.html'
-        a.click()
+    // axios
+    //   .post(`${server}/api/resume/to-html`, {
+    //     markdown: markdown.toString()
+    //   })
+    //   .then(({ data }) => {
+    //     const a = document.createElement('a')
+    //     const blob = new Blob([data.data])
+    //     a.href = URL.createObjectURL(blob)
+    //     a.download = 'resume.html'
+    //     a.click()
 
-        useConfetti()
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    //     useConfetti()
+    //   })
+    //   .catch((err) => {
+    //     console.log(err)
+    //   })
   }
   return (
-    <nav className="flex justify-between py-2 px-4 items-center w-full">
+    <nav className="flex items-center justify-between w-full px-4 py-2">
       <Link href={'/'} passHref>
-        <a className="focus:outline-none focus:ring-fuchsia-400 flex items-center ml-3">
+        <a className="flex items-center ml-3 focus:outline-none focus:ring-fuchsia-400">
           <img src="cv.svg" alt="cv logo" className="w-auto h-12" />
         </a>
       </Link>
 
       <div>
         <div className="p-4">
-          <div className="group relative">
-            <button className="flex items-center space-x-2  bg-purple-700 font-semibold uppercase text-white text-sm px-6 py-2 rounded-md">
+          <div className="relative group">
+            <button
+              className="flex items-center px-6 py-3 space-x-2 text-sm font-semibold text-white uppercase rounded-md shado bg-fuchsia-600 hover:bg-fuchsia-500"
+              onClick={() => setShowModal(true)}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -70,31 +76,11 @@ const Nav = ({ sections }) => {
               </svg>
               <span>Download</span>
             </button>
-            <nav
-              tabIndex="0"
-              className="overflow-hidden border-2 bg-gray-100 invisible border-gray-800 rounded-md w-full absolute left-0 top-full transition-all opacity-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-1"
-            >
-              <ul>
-                <li>
-                  <a href="#" className="block px-4 py-1 hover:bg-gray-200 " onClick={downloadHtml}>
-                    HTML5
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-4 py-1 hover:bg-gray-200">
-                    PDF
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="block px-4 py-1 hover:bg-gray-200">
-                    DOCX
-                  </a>
-                </li>
-              </ul>
-            </nav>
           </div>
         </div>
       </div>
+
+      {showModal && <DownloadModal setShowModal={setShowModal} download={download} />}
     </nav>
   )
 }

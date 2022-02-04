@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
+import LanguagePicker from 'components/LanguagePicker'
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
@@ -9,7 +10,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-gray-900">
-        <div className="relative overflow-hidden">
+        <div className="relative pt-8 overflow-hidden">
           <div className="absolute inset-y-0 w-full h-full" aria-hidden="true">
             <div className="relative h-full">
               <svg
@@ -69,10 +70,7 @@ export default function Home() {
           </div>
           <div className="relative pt-6 pb-16 sm:pb-24">
             <div className="px-4 mx-auto max-w-7xl sm:px-6">
-              <nav
-                className="relative flex items-center justify-between md:justify-start"
-                aria-label="Global"
-              >
+              <nav className="relative flex items-center justify-between" aria-label="Global">
                 <Link href="/">
                   <img
                     className="w-auto h-12 cursor-pointer"
@@ -82,7 +80,9 @@ export default function Home() {
                   />
                 </Link>
 
-                <div className="relative z-10 items-center w-28 md:absolute md:inset-y-0 md:right-0"></div>
+                <div>
+                  <LanguagePicker />
+                </div>
               </nav>
             </div>
 
