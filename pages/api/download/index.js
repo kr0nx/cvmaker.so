@@ -17,22 +17,36 @@ const getCssPath = () => {
     : serverPath('public/resume-css-stylesheet.css')
 }
 
+const buildDownloadArgs = (downloadAs, cssPath) => {
+  const cssPath = getCssPath()
+
+  const defaultArgs = [
+    '-f',
+    'markdown+tex_math_single_backslash+tex_math_dollars',
+    `--css=${cssPath}`,
+    '--toc',
+    '--mathjax',
+    '--standalone'
+  ]
+
+  switch (downloadAs) {
+    case 'html5':
+      return ['-t', 'html5', ...defaultArgs]
+    case 'pdf':
+      return ['-t', 'latex', ...defaultArgs]
+    case 'docx':
+      return ['-t', 'docx', ...defaultArgs]
+  }
+}
+
 export default async (req, res) => {
   if (req.method === 'POST') {
     const { markdown, downloadAs } = req.body
 
-    const cssPath = getCssPath()
+    // Based on downloadAs option build the pandoc args
+    const args = buildDownloadArgs(downloadAs)
 
-    var child = spawn(optipng, [
-      '-f',
-      'markdown+tex_math_single_backslash+tex_math_dollars',
-      '-t',
-      'html5',
-      `--css=${cssPath}`,
-      '--toc',
-      '--mathjax',
-      '--standalone'
-    ])
+    var child = spawn(optipng, [...args])
 
     child.stdin.write(markdown)
 
