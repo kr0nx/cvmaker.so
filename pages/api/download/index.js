@@ -17,23 +17,25 @@ const getCssPath = () => {
     : serverPath('public/resume-css-stylesheet.css')
 }
 
-const buildDownloadArgs = (downloadAs, cssPath) => {
+const buildDownloadArgs = (downloadAs) => {
   const cssPath = getCssPath()
 
   const defaultArgs = [
     '-f',
     'markdown+tex_math_single_backslash+tex_math_dollars',
-    `--css=${cssPath}`,
+    // `--css=${cssPath}`,
     '--toc',
-    '--mathjax',
+    // '--mathjax',
     '--standalone'
+    // '-o',
+    // 'build/resumeee.pdf'
   ]
 
   switch (downloadAs) {
     case 'html5':
       return ['-t', 'html5', ...defaultArgs]
     case 'pdf':
-      return ['-t', 'latex', ...defaultArgs]
+      return ['--latex-engine', 'xelatex', ...defaultArgs]
     case 'docx':
       return ['-t', 'docx', ...defaultArgs]
   }

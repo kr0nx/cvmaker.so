@@ -36,10 +36,13 @@ const Nav = ({ sections }) => {
         downloadAs: option
       })
       .then(({ data }) => {
+        console.log(data)
         const a = document.createElement('a')
-        const blob = new Blob([data.data])
+        const blob = new Blob([data.data], {
+          type: 'application/binary'
+        })
         a.href = URL.createObjectURL(blob)
-        a.download = 'resume.html'
+        a.download = `resume.${option === 'html5' ? 'html' : option}`
         a.click()
 
         fireConfetti()
