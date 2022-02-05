@@ -81,7 +81,7 @@ export default function Editor({ templates }) {
             <MdEditor sections={sections} updateSections={updateSections} />
           </div>
 
-          <div className="w-[720px] flex-shrink-0 mt-4 ">
+          <div className="w-[480px] flex-shrink-0 mt-4 ">
             <MdPreview sections={sections} />
           </div>
         </div>

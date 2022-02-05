@@ -14,6 +14,17 @@ export const en_EN = [
   },
 
   {
+    slug: 'personal-information',
+    name: 'Personal Information',
+    markdown: `
+
+* Phone: 0532 622 12 12 
+* Email: codingwithdidem@gmail.com
+* Address: No:1, Bahçeşehir, İstanbul, Turkey
+`
+  },
+
+  {
     slug: 'summary',
     name: 'Summary',
     markdown: `

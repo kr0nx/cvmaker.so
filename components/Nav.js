@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 import { fireConfetti } from 'hooks/fireConfetti'
 import { useStateValue } from 'context'
+import { useEnvironment } from 'utils/useEnvironment'
 
 import { DownloadModal } from './DownloadModal'
 
@@ -25,12 +26,14 @@ const Nav = ({ sections }) => {
       }
     }, ``)
 
-    const dev = process.env.NODE_ENV === 'development'
-    const server = dev ? 'http://localhost:3000' : 'https://cvmaker-so.vercel.app/'
+    const { baseUrl, isProduction } = useEnvironment()
+
+    const endpoint = `${baseUrl}/api/download`
 
     axios
-      .post(`${server}/api/resume/to-html`, {
-        markdown: markdown.toString()
+      .post(endpoint, {
+        markdown: markdown.toString(),
+        downloadAs: option
       })
       .then(({ data }) => {
         const a = document.createElement('a')

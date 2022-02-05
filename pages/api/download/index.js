@@ -3,26 +3,32 @@ import { spawn } from 'child_process'
 import getConfig from 'next/config'
 var optipng = require('pandoc-bin').path
 
+import { useEnvironment } from 'utils/useEnvironment'
+
 const serverPath = (staticFilePath) => {
   return path.join(getConfig().serverRuntimeConfig.PROJECT_ROOT, staticFilePath)
 }
 
+const getCssPath = () => {
+  const { baseUrl, isProduction } = useEnvironment()
+
+  return isProduction
+    ? `${baseUrl}/resume-css-stylesheet.css`
+    : serverPath('public/resume-css-stylesheet.css')
+}
+
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const { markdown } = req.body
+    const { markdown, downloadAs } = req.body
 
-    const devCssPath = serverPath('public/resume-css-stylesheet.css')
-    const prodCssPath = 'https://cvmaker-so.vercel.app//resume-css-stylesheet.css'
-
-    const dev = process.env.NODE_ENV === 'development'
-    const cssLink = dev ? devCssPath : prodCssPath
+    const cssPath = getCssPath()
 
     var child = spawn(optipng, [
       '-f',
       'markdown+tex_math_single_backslash+tex_math_dollars',
       '-t',
       'html5',
-      `--css=${cssLink}`,
+      `--css=${cssPath}`,
       '--toc',
       '--mathjax',
       '--standalone'
