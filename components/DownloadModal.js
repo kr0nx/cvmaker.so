@@ -61,6 +61,12 @@ Leaving: "ease-in duration-200"
                 </h3>
                 <div className="mt-6">
                   <button
+                    className="w-full py-3 mt-2 text-white rounded-md bg-fuchsia-500 hover:bg-fuchsia-400"
+                    onClick={() => download('markdown')}
+                  >
+                    MARKDOWN
+                  </button>
+                  <button
                     className="w-full py-3 mt-2 mb-2 text-white bg-pink-500 rounded-md hover:bg-pink-400"
                     onClick={() => download('html5')}
                   >

@@ -26,9 +26,9 @@ const buildDownloadArgs = (downloadAs) => {
     // `--css=${cssPath}`,
     '--toc',
     // '--mathjax',
-    '--standalone'
-    // '-o',
-    // 'build/resumeee.pdf'
+    '--standalone',
+    '-o',
+    'build/resumeee.pdf'
   ]
 
   switch (downloadAs) {

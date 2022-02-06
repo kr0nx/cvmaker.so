@@ -26,6 +26,18 @@ const Nav = ({ sections }) => {
       }
     }, ``)
 
+    if (option === 'markdown') {
+      const a = document.createElement('a')
+      const blob = new Blob([markdown], { type: 'text/plain;charset=utf-8' })
+      a.href = URL.createObjectURL(blob)
+      a.download = 'resume.md'
+      a.click()
+
+      fireConfetti()
+
+      return
+    }
+
     const { baseUrl, isProduction } = useEnvironment()
 
     const endpoint = `${baseUrl}/api/download`
@@ -36,7 +48,6 @@ const Nav = ({ sections }) => {
         downloadAs: option
       })
       .then(({ data }) => {
-        console.log(data)
         const a = document.createElement('a')
         const blob = new Blob([data.data], {
           type: 'application/binary'
