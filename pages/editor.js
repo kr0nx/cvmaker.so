@@ -1,12 +1,11 @@
 import Head from 'next/head'
-import Script from 'next/script'
 import { useEffect, useState } from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import sectionsWithLocales from 'sections/index'
 
 import Nav from 'components/Nav'
 import SectionSide from 'components/SectionSide'
-import MdEditor from 'components/MdEditor'
+import MdEditor from 'components/MdEditor/MdEditor'
 import MdPreview from 'components/MdPreview'
 
 import { useStateValue } from 'context'
@@ -77,11 +76,11 @@ export default function Editor({ templates }) {
             resetSection={resetSection}
           />
 
-          <div className="flex-1 w-full full-screen ">
+          <div className="w-[580px] full-screen ">
             <MdEditor sections={sections} updateSections={updateSections} />
           </div>
 
-          <div className="w-[480px] flex-shrink-0 mt-4 ">
+          <div className="flex-1 flex-shrink-0 mt-4 ">
             <MdPreview sections={sections} />
           </div>
         </div>
