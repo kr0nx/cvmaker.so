@@ -46,7 +46,7 @@ export default async (req, res) => {
     }
 
     if (downloadAs === 'html') {
-      var pandoc = spawn('pandoc', [...htmlArgs])
+      var pandoc = spawn(optipng, [...htmlArgs])
 
       pandoc.stdin.write(markdown)
       pandoc.stdin.end()
