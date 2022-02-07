@@ -2,7 +2,6 @@ import { spawn } from 'child_process'
 import { htmlArgs, pdfArgs } from './arguments'
 var optipng = require('pandoc-bin').path
 const markdownpdf = require('markdown-pdf')
-const fs = require('fs')
 import getConfig from 'next/config'
 import path from 'path'
 import { useEnvironment } from 'utils/useEnvironment'
@@ -17,6 +16,14 @@ const getCssPath = () => {
   return isProduction
     ? `${baseUrl}/resume-css-stylesheet.css`
     : serverPath('public/resume-css-stylesheet.css')
+}
+
+function preProcessMd() {
+  return through(function (data, ...args) {
+    console.log(args)
+    pageBreak = '\n\n<div style="page-break-before: always;"></div>\n\n'
+    this.queue(loadNunjucks(data) + pageBreak)
+  })
 }
 
 export default async (req, res) => {
@@ -34,33 +41,31 @@ export default async (req, res) => {
         cssPath: getCssPath(),
         remarkable: {
           html: true,
-          typographer: true,
+          typographer: false,
           breaks: true
         }
       })
         .from.string(markdown)
-        // .to(serverPath('public/resume.pdf')),
         .to.buffer(function (err, result) {
-          console.log(result)
           res.status(200).json({
-            result: result
+            result
           })
         })
     }
 
-    // let args = htmlArgs
+    if (downloadAs === 'html') {
+      var pandoc = spawn('pandoc', [...htmlArgs])
 
-    // var pandoc = spawn('pandoc', [...args])
+      pandoc.stdin.write(markdown)
+      pandoc.stdin.end()
 
-    // pandoc.stdin.write(markdown)
-    // pandoc.stdin.end()
-
-    // pandoc.stdout.on('data', function (data) {
-    //   res.status(200).json({ result: data.toString() })
-    // })
-    // pandoc.stderr.on('data', function (data) {
-    //   res.status(500).json({ error: data.toString() })
-    // })
+      pandoc.stdout.on('data', function (data) {
+        res.status(200).json({ result: data.toString() })
+      })
+      pandoc.stderr.on('data', function (data) {
+        res.status(500).json({ error: data.toString() })
+      })
+    }
   } else {
     res.status(405).json({ error: 'Method not allowed' })
   }

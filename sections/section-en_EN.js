@@ -83,12 +83,12 @@ OpsGenie - Ankara, Turkey
     markdown: `
 ## Skills & Expertise
 
-| Skills            | Expertise                                                          |
-| ----------------- | -------------------------------------------------------------------|
+| Skills            | Expertise             |
+| ----------------- | ----------------------|
 | Reactjs           |   Intermediate        |
 | JavaScript        |   Intermediate        |
 | GraphQL           |   Intermediate        |
-| TypeScript        |   Intermediate        | -------------------------------------------|
+| TypeScript        |   Intermediate        | 
 `
   },
   {

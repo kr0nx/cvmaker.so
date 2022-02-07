@@ -60,13 +60,18 @@ const Nav = ({ sections }) => {
       })
       .then(({ data: { result } }) => {
         const a = document.createElement('a')
-        if (option === 'pdf') {
-          console.log(result.data)
+        let blob
 
+        if (option === 'pdf') {
           let buffer = new Uint8Array(result.data)
           const blob = new Blob([buffer], { type: 'application/pdf' })
           a.href = URL.createObjectURL(blob)
-          a.download = `resume.${option === 'html5' ? 'html' : option}`
+          a.download = `resume.pdf`
+          a.click()
+        } else if (option === 'html') {
+          const blob = new Blob([result], { type: 'text/html' })
+          a.href = URL.createObjectURL(blob)
+          a.download = `resume.html`
           a.click()
         }
 

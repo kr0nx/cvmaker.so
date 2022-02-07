@@ -68,7 +68,7 @@ Leaving: "ease-in duration-200"
                   </button>
                   <button
                     className="w-full py-3 mt-2 mb-2 text-white bg-pink-500 rounded-md hover:bg-pink-400"
-                    onClick={() => download('html5')}
+                    onClick={() => download('html')}
                   >
                     HTML5
                   </button>
