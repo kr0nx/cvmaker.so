@@ -18,14 +18,6 @@ const getCssPath = () => {
     : serverPath('public/resume-css-stylesheet.css')
 }
 
-function preProcessMd() {
-  return through(function (data, ...args) {
-    console.log(args)
-    pageBreak = '\n\n<div style="page-break-before: always;"></div>\n\n'
-    this.queue(loadNunjucks(data) + pageBreak)
-  })
-}
-
 export default async (req, res) => {
   if (req.method === 'POST') {
     const { markdown, downloadAs } = req.body
