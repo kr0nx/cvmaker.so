@@ -1,13 +1,13 @@
 import getConfig from 'next/config'
 import path from 'path'
-import { useEnvironment } from 'utils/useEnvironment'
+import { getEnvironment } from 'utils/getEnvironment'
 
 const serverPath = (staticFilePath) => {
   return path.join(getConfig().serverRuntimeConfig.PROJECT_ROOT, staticFilePath)
 }
 
 const getCssPath = () => {
-  const { baseUrl, isProduction } = useEnvironment()
+  const { baseUrl, isProduction } = getEnvironment()
 
   return isProduction
     ? `${baseUrl}/resume-css-stylesheet.css`

@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { fireConfetti } from 'hooks/fireConfetti'
 import { useStateValue } from 'context'
-import { useEnvironment } from 'utils/useEnvironment'
+import { getEnvironment } from 'utils/getEnvironment'
 
 import { DownloadModal } from './DownloadModal'
 
@@ -49,7 +49,7 @@ const Nav = ({ sections }) => {
       return
     }
 
-    const { baseUrl, isProduction } = useEnvironment()
+    const { baseUrl, isProduction } = getEnvironment()
 
     const endpoint = `${baseUrl}/api/download`
 
