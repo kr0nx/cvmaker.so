@@ -8,6 +8,17 @@ import { useEnvironment } from 'utils/useEnvironment'
 
 import { DownloadModal } from './DownloadModal'
 
+const yaml = `
+---
+title: "Resume"
+author: "Didem"
+slug: "resume"
+date: "2020-08-01"
+numbersections: false
+
+---
+`
+
 const Nav = ({ sections }) => {
   const {
     state: { selectedSlugs },
@@ -44,17 +55,20 @@ const Nav = ({ sections }) => {
 
     axios
       .post(endpoint, {
-        markdown: markdown.toString(),
+        markdown: markdown,
         downloadAs: option
       })
-      .then(({ data }) => {
+      .then(({ data: { result } }) => {
         const a = document.createElement('a')
-        const blob = new Blob([data.data], {
-          type: 'application/binary'
-        })
-        a.href = URL.createObjectURL(blob)
-        a.download = `resume.${option === 'html5' ? 'html' : option}`
-        a.click()
+        if (option === 'pdf') {
+          console.log(result.data)
+
+          let buffer = new Uint8Array(result.data)
+          const blob = new Blob([buffer], { type: 'application/pdf' })
+          a.href = URL.createObjectURL(blob)
+          a.download = `resume.${option === 'html5' ? 'html' : option}`
+          a.click()
+        }
 
         fireConfetti()
       })

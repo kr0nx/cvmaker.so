@@ -61,7 +61,7 @@ Leaving: "ease-in duration-200"
                 </h3>
                 <div className="mt-6">
                   <button
-                    className="w-full py-3 mt-2 text-white rounded-md bg-fuchsia-500 hover:bg-fuchsia-400"
+                    className="w-full py-3 mt-2 mb-2 text-white rounded-md bg-fuchsia-500 hover:bg-fuchsia-400"
                     onClick={() => download('markdown')}
                   >
                     MARKDOWN
@@ -77,12 +77,6 @@ Leaving: "ease-in duration-200"
                     onClick={() => download('pdf')}
                   >
                     PDF
-                  </button>
-                  <button
-                    className="w-full py-3 mt-2 text-white bg-indigo-500 rounded-md hover:bg-indigo-400"
-                    onClick={() => download('docx')}
-                  >
-                    DOCX
                   </button>
                 </div>
               </div>

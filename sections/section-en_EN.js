@@ -28,7 +28,7 @@ export const en_EN = [
     slug: 'summary',
     name: 'Summary',
     markdown: `
-## 📃 Summary
+## Summary
 
 I am a software developer specializing in React and the JavaScript ecosystem. 
 I love to learn new things and I am always looking for ways to improve myself. 
@@ -40,7 +40,7 @@ Besides that, I create content sharing my knowledge and experience mostly in the
     slug: 'education',
     name: 'Education',
     markdown: `
-## 🏫 Education
+## Education
 2013-2018 
 **BSSE in Computer Science** - University of Atılım, Turkey
 Coursework in data structures, algorithms, software engineering, and computer networks.
@@ -50,7 +50,7 @@ Coursework in data structures, algorithms, software engineering, and computer ne
     slug: 'work-experience',
     name: 'Work Experience',
     markdown: `
-## 👩‍💻 Work Experience
+## Work Experience
 
 2018 - 2021
 **React Developer**
@@ -81,7 +81,7 @@ OpsGenie - Ankara, Turkey
     slug: 'skills-expertise',
     name: 'Skills & Expertise',
     markdown: `
-## 🛠 Skills & Expertise
+## Skills & Expertise
 
 | Skills            | Expertise                                                          |
 | ----------------- | -------------------------------------------------------------------|
@@ -95,7 +95,7 @@ OpsGenie - Ankara, Turkey
     slug: 'code-describes-me',
     name: 'Code Describes Me',
     markdown: `
-## 🖤 Code Describes Me
+## Code Describes Me
 
 \`\`\`javascript
 import Coffee from 'coffee-white-chocolate-mocha'
@@ -113,7 +113,7 @@ coffee.brew() ☕
     slug: 'contact-links',
     name: 'Contact Links',
     markdown: `
-## 🔗 Contact Links
+## Contact Links
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://codingwithdidem.me)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/didem-k%C3%BCc%C3%BCkkaraaslan-2a2a23140/)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/DidemKkkaraasl1)

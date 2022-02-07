@@ -29,7 +29,7 @@ export const tr_TR = [
     slug: 'summary',
     name: 'Özet',
     markdown: `
-## 📃 Özet
+## Özet
 React ve JavaScript ekosisteminde uzmanlaşan bir yazılım geliştiricisiyim.
 Yeni şeyler öğrenmeyi seviyorum ve sürekli kendimi geliştirmenin yollarını arıyorum.
 Bunun yanında bilgi ve deneyimlerimi çoğunlukla bloglar ve youtube videoları şeklinde paylaşan içerikler oluşturuyorum.
@@ -40,7 +40,7 @@ Bunun yanında bilgi ve deneyimlerimi çoğunlukla bloglar ve youtube videoları
     slug: 'education',
     name: 'Eğitim',
     markdown: `
-## 🏫 Eğitim
+## Eğitim
 2013-2018 
 **Yazılım Mühendiliği Lisans** - Atılım Üniversitesi , Türkiye
 Veri Yapıları, Algoritmalar, Yazılım Mühendisliği, Bilgisayar Ağları ve Sistemler
@@ -50,7 +50,7 @@ Veri Yapıları, Algoritmalar, Yazılım Mühendisliği, Bilgisayar Ağları ve 
     slug: 'work-experience',
     name: 'İş Deneyimi',
     markdown: `
-## 👩‍💻 İş Deneyimi
+## İş Deneyimi
 
 2018 - 2021
 **React Developer**
@@ -81,7 +81,7 @@ OpsGenie - Ankara, Turkey
     slug: 'skills-expertise',
     name: 'Yetenekler & Uzmanlıklar',
     markdown: `
-## 🛠 Yetenekler & Uzmanlıklar
+## Yetenekler & Uzmanlıklar
 
 | Skills            | Expertise                                                          |
 | ----------------- | -------------------------------------------------------------------|
@@ -95,7 +95,7 @@ OpsGenie - Ankara, Turkey
     slug: 'code-describes-me',
     name: 'Beni Anlatan Kod',
     markdown: `
-## 🖤 Beni Anlatan Kod
+## Beni Anlatan Kod
 
 \`\`\`javascript
 import Coffee from 'coffee-white-chocolate-mocha'
@@ -113,7 +113,7 @@ coffee.brew() ☕
     slug: 'contact-links',
     name: 'İletişim & Bağlantılar',
     markdown: `
-## 🔗 İletişim & Bağlantılar
+## İletişim & Bağlantılar
 
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://codingwithdidem.me)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/didem-k%C3%BCc%C3%BCkkaraaslan-2a2a23140/)

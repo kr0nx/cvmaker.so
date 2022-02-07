@@ -1,8 +1,10 @@
-import path from 'path'
 import { spawn } from 'child_process'
-import getConfig from 'next/config'
+import { htmlArgs, pdfArgs } from './arguments'
 var optipng = require('pandoc-bin').path
-
+const markdownpdf = require('markdown-pdf')
+const fs = require('fs')
+import getConfig from 'next/config'
+import path from 'path'
 import { useEnvironment } from 'utils/useEnvironment'
 
 const serverPath = (staticFilePath) => {
@@ -17,48 +19,48 @@ const getCssPath = () => {
     : serverPath('public/resume-css-stylesheet.css')
 }
 
-const buildDownloadArgs = (downloadAs) => {
-  const cssPath = getCssPath()
-
-  const defaultArgs = [
-    '-f',
-    'markdown+tex_math_single_backslash+tex_math_dollars',
-    // `--css=${cssPath}`,
-    '--toc',
-    // '--mathjax',
-    '--standalone',
-    '-o',
-    'build/resumeee.pdf'
-  ]
-
-  switch (downloadAs) {
-    case 'html5':
-      return ['-t', 'html5', ...defaultArgs]
-    case 'pdf':
-      return ['--latex-engine', 'xelatex', ...defaultArgs]
-    case 'docx':
-      return ['-t', 'docx', ...defaultArgs]
-  }
-}
-
 export default async (req, res) => {
   if (req.method === 'POST') {
     const { markdown, downloadAs } = req.body
 
-    // Based on downloadAs option build the pandoc args
-    const args = buildDownloadArgs(downloadAs)
+    if (!markdown) {
+      res.statusCode = 400
+      res.end('No markdown provided')
+      return
+    }
 
-    var child = spawn(optipng, [...args])
+    if (downloadAs === 'pdf') {
+      markdownpdf({
+        cssPath: getCssPath(),
+        remarkable: {
+          html: true,
+          typographer: true,
+          breaks: true
+        }
+      })
+        .from.string(markdown)
+        // .to(serverPath('public/resume.pdf')),
+        .to.buffer(function (err, result) {
+          console.log(result)
+          res.status(200).json({
+            result: result
+          })
+        })
+    }
 
-    child.stdin.write(markdown)
+    // let args = htmlArgs
 
-    child.stdout.on('data', function (data) {
-      res.status(200).json({ data: data.toString() })
-    })
-    child.stderr.on('data', function (data) {
-      res.status(500).json({ error: data.toString() })
-    })
-    child.stdin.end()
+    // var pandoc = spawn('pandoc', [...args])
+
+    // pandoc.stdin.write(markdown)
+    // pandoc.stdin.end()
+
+    // pandoc.stdout.on('data', function (data) {
+    //   res.status(200).json({ result: data.toString() })
+    // })
+    // pandoc.stderr.on('data', function (data) {
+    //   res.status(500).json({ error: data.toString() })
+    // })
   } else {
     res.status(405).json({ error: 'Method not allowed' })
   }
