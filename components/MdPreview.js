@@ -24,7 +24,7 @@ const supportedThemes = [
 
 const MdPreview = ({ sections }) => {
   const {
-    state: { selectedSlugs },
+    state: { selectedSlugs, cvTheme },
     dispatch
   } = useStateValue()
 
@@ -37,11 +37,15 @@ const MdPreview = ({ sections }) => {
     }
   }, ``)
 
+  const changeCvTheme = (theme) => {
+    dispatch({ type: 'SET_THEME', theme })
+  }
+
   return (
     <div className="relative">
-      <div className=" h-12 group absolute top-2 ">
-        <button className="flex items-center px-6 py-2 text-sm font-semibold text-white uppercase bg-pink-700 rounded-md">
-          <span>Theme</span>
+      <div className=" h-12 group absolute top-4 right-4 ">
+        <button className="flex items-center px-3 py-1 text-sm font-semibold text-gray-900 uppercase bg-transparent rounded-md border-2 border-gray-900 hover:bg-gray-100 shadow-lg">
+          <span>{cvTheme}</span>
         </button>
 
         <nav
@@ -50,8 +54,12 @@ const MdPreview = ({ sections }) => {
         >
           <ul>
             {supportedThemes.map(({ name, color }) => (
-              <li key={name} className="list-none">
-                <a href={'#'} className={`block px-4 py-1  hover:bg-gray-200 bg-[${color}]`}>
+              <li key={name}>
+                <a
+                  href={'#'}
+                  className={`block px-4 py-1  hover:bg-gray-200`}
+                  onClick={() => changeCvTheme(name)}
+                >
                   {name}
                 </a>
               </li>

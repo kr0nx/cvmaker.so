@@ -3,7 +3,8 @@ import { useReducer, createContext, useContext } from 'react'
 const initialState = {
   sectionSlugs: [],
   selectedSlugs: [],
-  focusedSlug: null
+  focusedSlug: null,
+  cvTheme: 'default'
 }
 
 const StateContext = createContext(initialState)
@@ -17,7 +18,8 @@ const reducer = (state, action) => {
           .filter((section) => section.slug !== 'intro')
           .map((section) => section.slug),
         selectedSlugs: ['intro'],
-        focusedSlug: 'intro'
+        focusedSlug: 'intro',
+        cvTheme: 'default'
       }
     case 'ADD_SECTION':
       return {
@@ -55,6 +57,12 @@ const reducer = (state, action) => {
           .map((section) => section.slug),
         selectedSlugs: ['intro'],
         focusedSlug: 'intro'
+      }
+
+    case 'SET_THEME':
+      return {
+        ...state,
+        cvTheme: action.theme
       }
 
     default:
