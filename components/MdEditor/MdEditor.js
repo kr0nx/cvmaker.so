@@ -44,7 +44,7 @@ const MdEditor = ({ sections, updateSections }) => {
   return (
     <>
       <CodeMirror
-        className="rounded-sm ring-1 ring-orchid-pink mt-4 h-full"
+        className="rounded-sm ring-2 ring-[#23252d] mt-4 h-full shadow-md shadow-[#cdd4ec]"
         value={code}
         onChange={onEdit}
         autoFocus

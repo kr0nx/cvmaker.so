@@ -321,7 +321,7 @@
 }
 
 html ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
   background-color: #f1f1f1;
   border-radius: 20px;
 }

@@ -20,7 +20,7 @@ const getCssPath = () => {
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const { markdown, downloadAs } = req.body
+    const { markdown, downloadAs, theme } = req.body
 
     if (!markdown) {
       res.statusCode = 400

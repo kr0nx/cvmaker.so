@@ -21,7 +21,7 @@ numbersections: false
 
 const Nav = ({ sections }) => {
   const {
-    state: { selectedSlugs },
+    state: { selectedSlugs, cvTheme },
     dispatch
   } = useStateValue()
 
@@ -56,11 +56,11 @@ const Nav = ({ sections }) => {
     axios
       .post(endpoint, {
         markdown: markdown,
-        downloadAs: option
+        downloadAs: option,
+        theme: cvTheme
       })
       .then(({ data: { result } }) => {
         const a = document.createElement('a')
-        let blob
 
         if (option === 'pdf') {
           let buffer = new Uint8Array(result.data)
