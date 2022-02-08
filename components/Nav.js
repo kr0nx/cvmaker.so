@@ -35,7 +35,7 @@ const Nav = ({ sections }) => {
       } else {
         return acc
       }
-    }, ``)
+    }, `\n\n`)
 
     if (option === 'markdown') {
       const a = document.createElement('a')
@@ -85,7 +85,7 @@ const Nav = ({ sections }) => {
     <nav className="flex items-center justify-between w-full px-4 py-2">
       <Link href={'/'} passHref>
         <a className="flex items-center ml-3 focus:outline-none focus:ring-fuchsia-400">
-          <img src="cv.svg" alt="cv logo" className="w-auto h-12" />
+          <img src="cv.svg" alt="cv logo" className="w-auto h-16" />
         </a>
       </Link>
 

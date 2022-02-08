@@ -41,7 +41,7 @@ Leaving: "ease-in duration-200"
   From: "opacity-100 translate-y-0 sm:scale-100"
   To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
     */}
-          <div className="inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl dark:bg-black sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6 md:max-w-lg md:py-10 md:px-10">
+          <div className="inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl  sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6 md:max-w-lg md:py-10 md:px-10">
             <div>
               <p className="mb-6 text-center text-7xl">🥳</p>
               <p className="mt-6 mb-4 font-sans text-3xl font-semibold leading-4 text-center text-gray-700 uppercase">
@@ -53,10 +53,7 @@ Leaving: "ease-in duration-200"
                 is ready
               </p>
               <div className="mt-3 text-center sm:mt-5">
-                <h3
-                  className="mb-4 text-lg font-medium leading-6 text-gray-600 dark:text-gray-300"
-                  id="modal-title"
-                >
+                <h3 className="mb-4 text-lg font-medium leading-6 text-gray-600 " id="modal-title">
                   You can download your resume using below links.
                 </h3>
                 <div className="mt-6">

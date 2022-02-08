@@ -33,7 +33,7 @@ export default async (req, res) => {
         cssPath: getCssPath(),
         remarkable: {
           html: true,
-          typographer: false,
+          typographer: true,
           breaks: true
         }
       })

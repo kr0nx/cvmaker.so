@@ -73,7 +73,7 @@ export default function Home() {
               <nav className="relative flex items-center justify-between" aria-label="Global">
                 <Link href="/">
                   <img
-                    className="w-auto h-12 cursor-pointer"
+                    className="w-auto h-24 cursor-pointer"
                     src="cv.svg"
                     alt="cv logo"
                     // style={{ height: '3rem' }}
