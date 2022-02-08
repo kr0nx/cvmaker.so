@@ -66,12 +66,12 @@ const Nav = ({ sections }) => {
           let buffer = new Uint8Array(result.data)
           const blob = new Blob([buffer], { type: 'application/pdf' })
           a.href = URL.createObjectURL(blob)
-          a.download = `resume.pdf`
+          a.download = `resume-${cvTheme}.pdf`
           a.click()
         } else if (option === 'html') {
           const blob = new Blob([result], { type: 'text/html' })
           a.href = URL.createObjectURL(blob)
-          a.download = `resume.html`
+          a.download = `resume-${cvTheme}.html`
           a.click()
         }
 

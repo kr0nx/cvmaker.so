@@ -1,5 +1,4 @@
 import { spawn } from 'child_process'
-import { htmlArgs, pdfArgs } from './arguments'
 var optipng = require('pandoc-bin').path
 const markdownpdf = require('markdown-pdf')
 import getConfig from 'next/config'
@@ -10,12 +9,12 @@ const serverPath = (staticFilePath) => {
   return path.join(getConfig().serverRuntimeConfig.PROJECT_ROOT, staticFilePath)
 }
 
-const getCssPath = () => {
+const getCssPath = (theme) => {
   const { baseUrl, isProduction } = getEnvironment()
 
   return isProduction
-    ? `${baseUrl}/resume-css-stylesheet.css`
-    : serverPath('public/resume-css-stylesheet.css')
+    ? `${baseUrl}/cv-themes/${theme}.css`
+    : serverPath(`public/cv-themes/${theme}.css`)
 }
 
 export default async (req, res) => {
@@ -30,7 +29,7 @@ export default async (req, res) => {
 
     if (downloadAs === 'pdf') {
       markdownpdf({
-        cssPath: getCssPath(),
+        cssPath: getCssPath(theme),
         remarkable: {
           html: true,
           typographer: true,
@@ -46,7 +45,15 @@ export default async (req, res) => {
     }
 
     if (downloadAs === 'html') {
-      var pandoc = spawn(optipng, [...htmlArgs])
+      var pandoc = spawn(optipng, [
+        '-f',
+        'markdown+tex_math_single_backslash+tex_math_dollars',
+        '-t',
+        'html5',
+        `--css=${getCssPath(theme)}`,
+        '--standalone',
+        '--table-of-contents'
+      ])
 
       pandoc.stdin.write(markdown)
       pandoc.stdin.end()
