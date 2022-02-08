@@ -42,33 +42,20 @@ const MdEditor = ({ sections, updateSections }) => {
   }
 
   return (
-    // <Editor
-    //   theme="vs-dark"
-    //   value={markdown}
-    //   onChange={onEdit}
-    //   onMount={onEditorDidMount}
-    //   className="rounded-sm ring-2 ring-orchid-pink mt-4 full-screen"
-    //   loading={'Loading...'}
-    //   options={{
-    //     minimap: { enabled: false },
-    //     lineNumbers: false,
-    //     fontSize: 15,
-    //     fontFamily: 'Cascadia Code',
-    //     automaticLayout: true
-    //   }}
-    // />
-    <CodeMirror
-      className="rounded-sm ring-1 ring-orchid-pink mt-4 h-full"
-      value={code}
-      onChange={onEdit}
-      autoFocus
-      indentWithTab={false}
-      theme={customTheme}
-      style={{ fontSize: '0.92rem' }}
-      height="100%"
-      width="100%"
-      extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]}
-    />
+    <>
+      <CodeMirror
+        className="rounded-sm ring-1 ring-orchid-pink mt-4 h-full"
+        value={code}
+        onChange={onEdit}
+        autoFocus
+        indentWithTab={false}
+        theme={customTheme}
+        style={{ fontSize: '0.92rem' }}
+        height="100%"
+        width="100%"
+        extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]}
+      />
+    </>
   )
 }
 

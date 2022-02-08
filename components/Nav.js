@@ -93,7 +93,7 @@ const Nav = ({ sections }) => {
         <div className="p-4">
           <div className="relative group">
             <button
-              className="flex items-center px-6 py-3 space-x-2 text-sm font-semibold text-white uppercase rounded-md shado bg-fuchsia-600 hover:bg-fuchsia-500"
+              className="flex items-center px-6 py-3 space-x-2 text-sm font-semibold text-white uppercase rounded-md shado  bg-[#ff6cb6] hover:bg-[#ff79c6] "
               onClick={() => setShowModal(true)}
             >
               <svg
