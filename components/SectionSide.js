@@ -59,7 +59,7 @@ const SectionSide = ({ sections, resetSections, resetSection }) => {
   }
 
   return (
-    <div className="w-80 flex-shrink-0">
+    <div className="w-[330px] flex-shrink-0">
       <div className="flex items-center justify-between text-baby-blue-eyes px-2 -mt-2">
         <h3 className="px-1 text-sm font-medium  border-b-2 border-transparent  whitespace-nowrap focus:outline-none">
           Sections

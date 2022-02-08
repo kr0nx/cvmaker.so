@@ -3,7 +3,11 @@ import { useStateValue } from 'context'
 import CodeMirror from '@uiw/react-codemirror'
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown'
 import { languages } from '@codemirror/language-data'
-import { oneDark } from '@codemirror/theme-one-dark'
+import 'codemirror/lib/codemirror.css'
+import 'codemirror/theme/panda-syntax.css'
+import 'codemirror/theme/dracula.css'
+import 'codemirror/theme/blackboard.css'
+import { customTheme } from './customTheme'
 
 const MdEditor = ({ sections, updateSections }) => {
   const {
@@ -54,13 +58,13 @@ const MdEditor = ({ sections, updateSections }) => {
     //   }}
     // />
     <CodeMirror
-      className="rounded-sm ring-2 ring-orchid-pink mt-4 full-screen focus:outline-none"
+      className="rounded-sm ring-1 ring-orchid-pink mt-4 h-full"
       value={code}
       onChange={onEdit}
       autoFocus
       indentWithTab={false}
-      theme={oneDark}
-      style={{ fontSize: '1rem' }}
+      theme={customTheme}
+      style={{ fontSize: '0.92rem' }}
       height="100%"
       width="100%"
       extensions={[markdown({ base: markdownLanguage, codeLanguages: languages })]}

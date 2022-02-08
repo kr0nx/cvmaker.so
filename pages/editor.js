@@ -76,7 +76,7 @@ export default function Editor({ templates }) {
             resetSection={resetSection}
           />
 
-          <div className="w-[580px] full-screen ">
+          <div className="w-[600px] h-[630px] ">
             <MdEditor sections={sections} updateSections={updateSections} />
           </div>
 
