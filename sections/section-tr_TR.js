@@ -4,7 +4,7 @@ export const tr_TR = [
     name: 'Giriş',
     markdown: `
 
-![](https://pbs.twimg.com/profile_images/1475013514746122243/LlLpV5pr_400x400.jpg#thumbnail)
+![](https://pbs.twimg.com/profile_images/1495398579812376577/aXXn8zP4_400x400.jpg)
 
 # Didem Küçükkaraaslan
 
@@ -18,9 +18,7 @@ export const tr_TR = [
     name: 'Kişisel Bilgiler',
     markdown: `
 
-* Phone: 0532 622 12 12 
 * Email: codingwithdidem@gmail.com
-* Address: No:1, Bahçeşehir, İstanbul, Turkey
 
     `
   },
@@ -118,7 +116,7 @@ coffee.brew() ☕
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://codingwithdidem.me)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/didem-k%C3%BCc%C3%BCkkaraaslan-2a2a23140/)
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/DidemKkkaraasl1)
-
+[![github](https://img.shields.io/badge/github-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/codingwithdidem)
 `
   }
 ]
