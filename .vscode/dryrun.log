@@ -1,0 +1,13 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/didem/projects/cv-builder'
+pandoc cv.md \
+    --from=markdown+tex_math_single_backslash+tex_math_dollars \
+    --to=html5 \
+	--toc \
+	--output=cv.html \
+	--css=pandoc.css \
+    --mathjax \
+	--standalone \
+	
+make: Leaving directory `/Users/didem/projects/cv-builder'
+ 

@@ -320,17 +320,5 @@
   }
 }
 
-html ::-webkit-scrollbar {
-  width: 8px;
-  background-color: #f1f1f1;
-  border-radius: 20px;
-}
-
-html ::-webkit-scrollbar-thumb {
-  background-color: #ffc8ddff;
-  border-radius: 20px;
-}
-
-html ::-webkit-scrollbar-thumb:hover {
-  background-color: #ffafccff;
+.ͼ1 .cm-scroller {
 }

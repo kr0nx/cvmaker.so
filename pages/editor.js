@@ -76,11 +76,11 @@ export default function Editor({ templates }) {
             resetSection={resetSection}
           />
 
-          <div className="w-[600px] h-[630px] ">
+          <div className="w-[600px] h-[630px] mt-3 shadow-lg  shadow-[#ffc8ddff] ">
             <MdEditor sections={sections} updateSections={updateSections} />
           </div>
 
-          <div className="flex-1 flex-shrink-0 mt-4 ">
+          <div className="flex-1 flex-shrink-0 mt-3 ">
             <MdPreview sections={sections} />
           </div>
         </div>
