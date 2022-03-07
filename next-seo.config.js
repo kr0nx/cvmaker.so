@@ -1,11 +1,11 @@
 export default {
-  defaultTitle: 'readme.so',
+  defaultTitle: 'Dev Resume',
   description:
-    "Use readme.so's markdown editor and templates to easily create a ReadMe for your projects",
+    "Dev Resume, a simple way to create a resume in markdown. It's a free resume builder for developers.",
   additionalMetaTags: [
     {
       property: 'keywords',
-      content: 'readme, easiest, create, markdown, git ,github, gitlab'
+      content: 'cv, resume, drag, drop, easiest, create, markdown'
     }
   ],
   additionalLinkTags: [
@@ -26,17 +26,16 @@ export default {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://readme.so/',
-    title: 'readme.so',
-    site_name: 'readme.so',
-    description:
-      "Use readme.so's markdown editor and templates to easily create a ReadMe for your projects",
+    url: 'https://devresume.so',
+    title: 'devresume.so',
+    site_name: 'devresume.so',
+    description: 'A simple way to create a resume in markdown.',
     images: [
       {
-        url: 'https://readme.so/readme.png',
+        url: 'https://devresume.so/devresume.png',
         width: 375,
         height: 375,
-        alt: 'readme.so'
+        alt: 'devresume.so'
       }
     ]
   },

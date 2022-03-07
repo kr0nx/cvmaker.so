@@ -73,8 +73,8 @@ export default function Home() {
               <nav className="relative flex items-center justify-between" aria-label="Global">
                 <Link href="/">
                   <img
-                    className="w-auto h-24 cursor-pointer"
-                    src="cv.svg"
+                    className="w-auto h-20 cursor-pointer"
+                    src="logo.png"
                     alt="cv logo"
                     // style={{ height: '3rem' }}
                   />
@@ -120,7 +120,7 @@ export default function Home() {
               <div className="absolute bg-blue-300 rounded-full -bottom-16 left-64 w-96 h-96 mix-blend-normal filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
               <img
                 className="relative rounded-lg shadow-lg opacity-90"
-                src="/ss.png"
+                src="/devresume.png"
                 alt="App screenshot"
               />
             </div>
