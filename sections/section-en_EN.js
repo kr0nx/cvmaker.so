@@ -4,7 +4,7 @@ export const en_EN = [
     name: 'Introduction',
     markdown: `
 
-![](https://pbs.twimg.com/profile_images/1495398579812376577/aXXn8zP4_400x400.jpg)
+![](https://pbs.twimg.com/profile_images/1495398579812376577/aXXn8zP4_400x400.jpg#thumbnail)
 
 # Didem Küçükkaraaslan
 
@@ -17,6 +17,7 @@ export const en_EN = [
     slug: 'personal-information',
     name: 'Personal Information',
     markdown: `
+## Personal Information
 
 * Email: codingwithdidem@gmail.com
 `

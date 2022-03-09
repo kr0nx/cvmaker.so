@@ -198,3 +198,13 @@ blockquote {
   border-left: 3px solid #01ff70;
   padding-left: 1rem;
 }
+
+img[src*='#thumbnail'] {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  object-fit: cover;
+  border-radius: 10%;
+}

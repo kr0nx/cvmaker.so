@@ -495,32 +495,32 @@ h6 {
 }
 h1 {
   font-size: 37px;
-  color: #000;
+  color: #24292f;
   text-align: center;
 }
 h2 {
   font-size: 24px;
   border-bottom: 1px solid #ccc;
-  color: #f39;
+  color: #24292f;
 }
 h3 {
   font-size: 18px;
-  color: #333;
+  color: #24292f;
 }
 h4 {
   font-size: 16px;
-  color: #333;
+  color: #24292f;
   text-align: center;
   -webkit-margin-before: 0.02em;
   -webkit-margin-after: 0.02em;
 }
 h5 {
   font-size: 14px;
-  color: #333;
+  color: #24292f;
   text-align: center;
 }
 h6 {
-  color: #777;
+  color: #24292f;
   font-size: 14px;
   text-align: center;
 }
@@ -618,7 +618,7 @@ dl dd > :last-child {
 blockquote {
   border-left: 4px solid #ddd;
   padding: 0 15px;
-  color: #777;
+  color: #57606a;
 }
 blockquote > :first-child {
   margin-top: 0;

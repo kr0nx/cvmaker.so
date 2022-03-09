@@ -6,6 +6,7 @@ import SEO from 'next-seo.config'
 import { StateProvider } from 'context'
 
 import '../styles/globals.css'
+import '../styles/default.css'
 
 function MyApp({ Component, pageProps }) {
   return (

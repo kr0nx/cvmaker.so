@@ -4,7 +4,7 @@ export const tr_TR = [
     name: 'Giriş',
     markdown: `
 
-![](https://pbs.twimg.com/profile_images/1495398579812376577/aXXn8zP4_400x400.jpg)
+![](https://pbs.twimg.com/profile_images/1495398579812376577/aXXn8zP4_400x400.jpg#thumbnail)
 
 # Didem Küçükkaraaslan
 
@@ -18,6 +18,7 @@ export const tr_TR = [
     name: 'Kişisel Bilgiler',
     markdown: `
 
+## Kişisel Bilgiler
 * Email: codingwithdidem@gmail.com
 
     `

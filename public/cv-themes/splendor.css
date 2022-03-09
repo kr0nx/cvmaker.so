@@ -223,3 +223,13 @@ a:focus,
 a:active {
   color: #2980b9;
 }
+
+img[src*='#thumbnail'] {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  object-fit: cover;
+  border-radius: 10%;
+}

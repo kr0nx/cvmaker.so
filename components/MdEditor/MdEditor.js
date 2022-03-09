@@ -47,7 +47,6 @@ const MdEditor = ({ sections, updateSections }) => {
         className="rounded-sm ring-2 ring-[rgb(35,37,45)] h-full"
         value={code}
         onChange={onEdit}
-        autoFocus
         indentWithTab={false}
         theme={customTheme}
         style={{ fontSize: '0.92rem' }}

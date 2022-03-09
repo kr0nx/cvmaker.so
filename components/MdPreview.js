@@ -1,6 +1,8 @@
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { useStateValue } from 'context'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { coy } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 
 const MdPreview = ({ sections }) => {
   const {
@@ -18,13 +20,33 @@ const MdPreview = ({ sections }) => {
   }, ``)
 
   return (
-    <div className="preview">
-      <ReactMarkdown
-        className="bg-white h-[630px] rounded-sm px-4 py-4 overflow-y-scroll"
-        remarkPlugins={[remarkGfm]}
-      >
-        {markdown}
-      </ReactMarkdown>
+    <div className="w-full">
+      <div className="markdown-body-default">
+        <ReactMarkdown
+          className=" text-center h-[630px] rounded-sm px-4 py-4 overflow-y-scroll"
+          remarkPlugins={[remarkGfm]}
+          components={{
+            code({ node, inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || '')
+              return !inline && match ? (
+                <SyntaxHighlighter
+                  children={String(children).replace(/\n$/, '')}
+                  style={coy}
+                  language={match[1]}
+                  PreTag="div"
+                  {...props}
+                />
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              )
+            }
+          }}
+        >
+          {markdown}
+        </ReactMarkdown>
+      </div>
     </div>
   )
 }

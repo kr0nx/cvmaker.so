@@ -8,7 +8,6 @@ import { getEnvironment } from 'utils/getEnvironment'
 
 import { DownloadModal } from './DownloadModal'
 
-import { indigo, emerald, sky, pink } from 'tailwindcss/colors'
 const yaml = `
 ---
 title: "Resume"
@@ -19,25 +18,6 @@ numbersections: false
 
 ---
 `
-
-const supportedThemes = [
-  {
-    name: 'default',
-    color: indigo[500]
-  },
-  {
-    name: 'air',
-    color: emerald[500]
-  },
-  {
-    name: 'retro',
-    color: sky[500]
-  },
-  {
-    name: 'splendor',
-    color: pink[500]
-  }
-]
 
 const Nav = ({ sections }) => {
   const {
@@ -51,7 +31,7 @@ const Nav = ({ sections }) => {
     const markdown = selectedSlugs.reduce((acc, slug) => {
       const template = sections.find((s) => s.slug === slug)
       if (template) {
-        return `${acc}${template.markdown}`
+        return `${acc}${template.markdown}` + '\n\n'
       } else {
         return acc
       }
@@ -102,10 +82,6 @@ const Nav = ({ sections }) => {
       })
   }
 
-  const changeCvTheme = (theme) => {
-    dispatch({ type: 'SET_THEME', theme })
-  }
-
   return (
     <nav className="flex items-center justify-between w-full px-2 py-2">
       <Link href={'/'} passHref>
@@ -116,34 +92,9 @@ const Nav = ({ sections }) => {
 
       <div>
         <div className="p-4">
-          <div className="flex space-x-4 items-center">
-            <div className="group h-12">
-              <button className="flex items-center px-6 py-[14px] text-sm font-semibold text-white uppercase rounded-md shado  bg-[#398cda] hover:bg-[#1d68af]">
-                <span>{cvTheme}</span>
-              </button>
-
-              <nav
-                tabIndex="0"
-                className="invisible w-full overflow-hidden transition-all bg-gray-100 border-2 border-gray-800 rounded-md opacity-0 top-full group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-1"
-              >
-                <ul>
-                  {supportedThemes.map(({ name, color }) => (
-                    <li key={name}>
-                      <a
-                        href={'#'}
-                        className={`block px-4 py-1  hover:bg-gray-200`}
-                        onClick={() => changeCvTheme(name)}
-                      >
-                        {name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
-
+          <div className="">
             <button
-              className="flex items-center px-6 py-3 space-x-2 text-sm font-semibold text-white uppercase rounded-md shado  bg-[#ff6cb6] hover:bg-[#e85aa1] "
+              className="flex items-center px-6 py-2 space-x-2 text-sm font-semibold text-white uppercase rounded-md shadow  bg-[#ff6cb6] hover:bg-[#e85aa1] "
               onClick={() => setShowModal(true)}
             >
               <svg

@@ -23,7 +23,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
 
+/* 
   .preview p {
     margin-bottom: 16px;
   }
@@ -318,7 +320,4 @@
   .full-screen {
     height: calc(100vh - 160px);
   }
-}
-
-.ͼ1 .cm-scroller {
-}
+} */
