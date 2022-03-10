@@ -1,8 +1,8 @@
 import { spawn } from 'child_process'
 var optipng = require('pandoc-bin').path
-const markdownpdf = require('markdown-pdf')
 import getConfig from 'next/config'
 import path from 'path'
+const { mdToPdf } = require('md-to-pdf')
 import { getEnvironment } from 'utils/getEnvironment'
 
 const serverPath = (staticFilePath) => {
@@ -28,44 +28,80 @@ export default async (req, res) => {
     }
 
     if (downloadAs === 'pdf') {
-      markdownpdf({
-        cssPath: getCssPath(theme),
-        remarkable: {
-          html: true,
-          typographer: true,
-          breaks: true
-        }
+      const { err, data } = await markdown2Pdf(markdown)
+
+      if (err) {
+        return res.end(err.message)
+      }
+
+      const { content = '' } = data
+
+      if (!content) return res.end('No PDF content exists in the data')
+
+      res.status(200).send({
+        buffer: content
       })
-        .from.string(markdown)
-        .to.buffer(function (err, result) {
-          res.status(200).json({
-            result
-          })
-        })
     }
 
     if (downloadAs === 'html') {
-      var pandoc = spawn(optipng, [
-        '-f',
-        'markdown+tex_math_single_backslash+tex_math_dollars',
-        '-t',
-        'html5',
-        `--css=${getCssPath(theme)}`,
-        '--standalone',
-        '--table-of-contents'
-      ])
+      const { err, data } = await markdown2Html(markdown)
 
-      pandoc.stdin.write(markdown)
-      pandoc.stdin.end()
+      if (err) {
+        return res.end(err.message)
+      }
 
-      pandoc.stdout.on('data', function (data) {
-        res.status(200).json({ result: data.toString() })
-      })
-      pandoc.stderr.on('data', function (data) {
-        res.status(500).json({ error: data.toString() })
+      const { content = '' } = data
+
+      if (!content) return res.end('No HTML content exists in the data')
+
+      res.status(200).send({
+        content
       })
     }
   } else {
     res.status(405).json({ error: 'Method not allowed' })
+  }
+}
+
+const markdown2Html = async (md) => {
+  let html = null
+
+  try {
+    html = await mdToPdf(
+      { content: md },
+      {
+        stylesheet: getCssPath('default'),
+        as_html: true
+      }
+    )
+  } catch (err) {
+    return { err }
+  }
+
+  if (html && html.content) {
+    return { data: html }
+  } else {
+    return { err: new Error('No html content.') }
+  }
+}
+
+const markdown2Pdf = async (md) => {
+  let pdf = null
+
+  try {
+    pdf = await mdToPdf(
+      { content: md },
+      {
+        stylesheet: getCssPath('default')
+      }
+    )
+  } catch (err) {
+    return { err }
+  }
+
+  if (pdf && pdf.content) {
+    return { data: pdf }
+  } else {
+    return { err: new Error('No pdf content.') }
   }
 }

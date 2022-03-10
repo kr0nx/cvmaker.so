@@ -59,17 +59,17 @@ const Nav = ({ sections }) => {
         downloadAs: option,
         theme: cvTheme
       })
-      .then(({ data: { result } }) => {
+      .then(({ data }) => {
         const a = document.createElement('a')
 
         if (option === 'pdf') {
-          let buffer = new Uint8Array(result.data)
+          let buffer = new Uint8Array(data.buffer.data)
           const blob = new Blob([buffer], { type: 'application/pdf' })
           a.href = URL.createObjectURL(blob)
           a.download = `resume-${cvTheme}.pdf`
           a.click()
         } else if (option === 'html') {
-          const blob = new Blob([result], { type: 'text/html' })
+          const blob = new Blob([data.content], { type: 'text/html' })
           a.href = URL.createObjectURL(blob)
           a.download = `resume-${cvTheme}.html`
           a.click()
@@ -94,7 +94,7 @@ const Nav = ({ sections }) => {
         <div className="p-4">
           <div className="">
             <button
-              className="flex items-center px-6 py-2 space-x-2 text-sm font-semibold text-white uppercase rounded-md shadow  bg-[#ff6cb6] hover:bg-[#e85aa1] "
+              className="flex items-center px-2 py-2 md:px-6 md:py-2 space-x-2 text-sm font-semibold text-white uppercase rounded-md shadow  bg-[#ff6cb6] hover:bg-[#e85aa1] "
               onClick={() => setShowModal(true)}
             >
               <svg
@@ -111,7 +111,7 @@ const Nav = ({ sections }) => {
                   d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
                 />
               </svg>
-              <span>Download</span>
+              <span className="hidden sm:block">Download</span>
             </button>
           </div>
         </div>

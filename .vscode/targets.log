@@ -6,11 +6,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
-make: *** No rule to make target `all'.  Stop.
- 
 
-# Make data base, printed on Mon Mar  7 20:20:19 2022
+# Make data base, printed on Wed Mar  9 15:03:36 2022
 
 # Variables
 
@@ -43,10 +40,9 @@ VSCODE_VERBOSE_LOGGING = true
 # environment
 __CFBundleIdentifier = com.microsoft.VSCode
 # environment
- 
 INFOPATH = /opt/homebrew/share/info:
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/y8/dw469yh14qs_50lg4_d67r0c0000gn/T/vscode-ipc-9229ea3e-be9b-455e-ab5d-1be2214c3078.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/y8/dw469yh14qs_50lg4_d67r0c0000gn/T/vscode-ipc-9b92922f-9a65-4088-9824-6545bb795a16.sock
 # environment
 VSCODE_CWD = /
 # environment
@@ -82,7 +78,7 @@ HOME = /Users/didem
 # default
 MAKEFILEPATH = $(shell /usr/bin/xcode-select -print-path 2>/dev/null || echo /Developer)/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/didem/Library/Application Support/Code/CachedData/b5205cc8eb4fbaa726835538cd82372cc0222d43
+VSCODE_CODE_CACHE_PATH = /Users/didem/Library/Application Support/Code/CachedData/8908a9ca0f221f36507231afb39d2d8d1e182702
 # environment
 LOGNAME = didem
 # environment
@@ -122,7 +118,7 @@ TMPDIR = /var/folders/y8/dw469yh14qs_50lg4_d67r0c0000gn/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/didem/Library/Application Support/Code/1.65.0-main.sock
+VSCODE_IPC_HOOK = /Users/didem/Library/Application Support/Code/1.65.1-main.sock
 # makefile
 MAKEFLAGS = Rrqp
 # environment
@@ -166,7 +162,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 92466
+VSCODE_PID = 4146
 # variable set hash-table stats:
 # Load=76/1024=7%, Rehash=0, Collisions=1/100=1%
 
@@ -244,6 +240,8 @@ html:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Mar  7 20:20:19 2022
+# Finished Make data base on Wed Mar  9 15:03:36 2022
 
+ 
+make: *** No rule to make target `all'.  Stop.
  

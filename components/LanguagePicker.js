@@ -29,7 +29,7 @@ const LanguagePicker = () => {
   }
 
   return (
-    <div className="relative h-12 group">
+    <div className="relative group">
       <button className="flex items-center px-6 py-2 text-sm font-semibold text-white uppercase bg-pink-700 rounded-md">
         <span>{language}</span>
       </button>

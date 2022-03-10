@@ -71,16 +71,18 @@ export default function Home() {
           <div className="relative pt-6 pb-16 sm:pb-24">
             <div className="px-4 mx-auto max-w-7xl sm:px-6">
               <nav className="relative flex items-center justify-between" aria-label="Global">
-                <Link href="/">
-                  <img
-                    className="w-auto h-20 cursor-pointer"
-                    src="logo.png"
-                    alt="cv logo"
-                    // style={{ height: '3rem' }}
-                  />
-                </Link>
-
                 <div>
+                  <Link href="/">
+                    <img
+                      className="w-auto h-14  md:h-20 cursor-pointer"
+                      src="logo.png"
+                      alt="cv logo"
+                      // style={{ height: '3rem' }}
+                    />
+                  </Link>
+                </div>
+
+                <div className="h-7 md:h-10">
                   <LanguagePicker />
                 </div>
               </nav>

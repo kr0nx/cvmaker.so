@@ -83,7 +83,7 @@ export default function Editor({ templates }) {
       <div className="fixed w-full h-full overflow-hidden bg-gradient-to-br bg-[#282a33]">
         <Nav sections={sections} />
 
-        <div className="flex flex-1 w-full h-full space-x-4 mt-4 md:px-6">
+        <div className="flex flex-1 w-full h-full space-x-4 mt-4 px-4 md:px-6">
           <SectionSide
             sections={sections}
             resetSections={resetSections}
