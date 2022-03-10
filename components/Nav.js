@@ -41,7 +41,7 @@ const Nav = ({ sections, toggleSidebar, openSidebar }) => {
 
   const exportAsPdf = (markdown) => {
     const { baseUrl, isProduction } = getEnvironment()
-    const endpoint = `${baseUrl}/api/export/as_pdf`
+    const endpoint = `/api/export/as_pdf`
 
     axios
       .post(endpoint, {
@@ -66,7 +66,7 @@ const Nav = ({ sections, toggleSidebar, openSidebar }) => {
 
   const exportAsHtml = (markdown) => {
     const { baseUrl, isProduction } = getEnvironment()
-    const endpoint = `${baseUrl}/api/export/as_html`
+    const endpoint = `/api/export/as_html`
 
     axios
       .post(endpoint, {
