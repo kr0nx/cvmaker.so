@@ -11,7 +11,7 @@ const getCssPath = (theme) => {
   const { baseUrl, isProduction } = getEnvironment()
 
   return isProduction
-    ? `${baseUrl}/cv-themes/${theme}.css`
+    ? `/cv-themes/${theme}.css`
     : serverPath(`public/cv-themes/${theme}.css`)
 }
 
