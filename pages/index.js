@@ -69,12 +69,12 @@ export default function Home() {
             </div>
           </div>
           <div className="relative pt-6 pb-16 sm:pb-24">
-            <div className="px-4 mx-auto max-w-7xl sm:px-6">
+            <div className="mx-auto max-w-7xl sm:px-6">
               <nav className="relative flex items-center justify-between" aria-label="Global">
                 <div>
                   <Link href="/">
                     <img
-                      className="w-auto h-14  md:h-20 cursor-pointer"
+                      className="w-auto h-16 md:h-20 cursor-pointer object-cover flex-shrink-0"
                       src="logo.png"
                       alt="cv logo"
                       // style={{ height: '3rem' }}

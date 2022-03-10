@@ -71,16 +71,16 @@ Leaving: "ease-in duration-200"
   From: "opacity-100 translate-y-0 sm:scale-100"
   To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
     */}
-          <div className="text-center inline-block px-4 pt-5 pb-4 overflow-hidden align-bottom transition-all transform bg-white rounded-lg shadow-xl  sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6 md:max-w-lg md:py-10 md:px-10">
+          <div className="text-center inline-block px-4 pt-5 pb-4 overflow-hidden align-bottom transition-all transform bg-gray-900 rounded-lg shadow-xl  sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6 md:max-w-lg md:py-10 md:px-10">
             <div>
               <p className="mb-6 text-center text-7xl">🥳</p>
-              <p className="mt-6 mb-4 font-sans text-3xl font-semibold leading-4 text-center text-gray-800 uppercase">
+              <p className="mt-6 mb-4 font-sans text-3xl font-semibold leading-4 text-center text-gray-200 uppercase">
                 {' '}
-                Your <span className="font-semibold text-black ">resume</span> is ready
+                Your <span className="font-semibold text-fuchsia-600 ">resume</span> is ready
               </p>
 
               <div className="group h-10 z-10 mb-20 mt-10">
-                <p className="uppercase mb-2 font-bold text-gray-800">Select a theme</p>
+                <p className="uppercase mb-2 font-bold text-gray-200">Pick a theme</p>
                 <button className="w-full flex items-center justify-center px-6 py-[10px] text-sm font-semibold text-white uppercase rounded-md shado  bg-black">
                   <span>{cvTheme}</span>
                 </button>
@@ -106,7 +106,7 @@ Leaving: "ease-in duration-200"
               </div>
 
               <div className="mt-8">
-                <p className="uppercase mb-2 font-bold text-gray-800">Download Resume</p>
+                <p className="uppercase mb-2 font-bold text-gray-200">Download AS</p>
                 <button
                   className="w-full py-3 mt-2 mb-2 text-white rounded-md bg-fuchsia-500 hover:bg-fuchsia-400"
                   onClick={() => download('markdown')}
@@ -114,7 +114,7 @@ Leaving: "ease-in duration-200"
                   MARKDOWN
                 </button>
                 <button
-                  className="w-full py-3 mt-2 mb-2 text-white bg-pink-500 rounded-md hover:bg-pink-400"
+                  className="w-full py-3 mt-2 mb-2 text-white bg-indigo-500 rounded-md hover:bg-indigo-400"
                   onClick={() => download('html')}
                 >
                   HTML5

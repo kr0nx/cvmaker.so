@@ -16,7 +16,7 @@ import SortableItem from './SortableItem'
 
 import { useStateValue } from 'context'
 
-const SectionSide = ({ sections, resetSections, resetSection }) => {
+const SectionSide = ({ openSidebar, sections, resetSections, resetSection }) => {
   const {
     state: { sectionSlugs, selectedSlugs },
     dispatch
@@ -59,8 +59,12 @@ const SectionSide = ({ sections, resetSections, resetSection }) => {
   }
 
   return (
-    <div className="hidden md:block md:w-[330px] flex-shrink-0">
-      <div className="flex items-center justify-between text-baby-blue-eyes px-2 -mt-2">
+    <div
+      className={`${
+        openSidebar ? 'translate-x-0 left-0' : '-translate-x-full -left-10'
+      } rounded-md flex-shrink-0 p-6 md:p-0 w-[350px]  md:block fixed md:static bg-[#1f222a] shadow-xl z-40 md:z-0  md:bg-transparent transform transition-transform duration-500 ease-in-out md:transform-none`}
+    >
+      <div className="flex items-center justify-between text-baby-blue-eyes px-2  mb-3">
         <h3 className="px-1 text-sm font-medium  border-b-2 border-transparent  whitespace-nowrap focus:outline-none">
           Sections
         </h3>

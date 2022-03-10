@@ -14,6 +14,7 @@ import { useStateValue } from 'context'
 export default function Editor({ templates }) {
   const { state, dispatch } = useStateValue()
 
+  const [openSidebar, setOpenSidebar] = useState(false)
   const [sections, setSections] = useState(templates)
   const [viewMode, setViewMode] = useState('markdown')
 
@@ -81,10 +82,15 @@ export default function Editor({ templates }) {
       </Head>
 
       <div className="fixed w-full h-full overflow-hidden bg-gradient-to-br bg-[#282a33]">
-        <Nav sections={sections} />
+        <Nav
+          sections={sections}
+          openSidebar={openSidebar}
+          toggleSidebar={() => setOpenSidebar((prevState) => !prevState)}
+        />
 
-        <div className="flex flex-1 w-full h-full space-x-4 mt-4 px-4 md:px-6">
+        <div className="flex flex-1 w-full h-full md:space-x-4 mt-4 px-2 md:px-6">
           <SectionSide
+            openSidebar={openSidebar}
             sections={sections}
             resetSections={resetSections}
             resetSection={resetSection}
